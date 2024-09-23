@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sertifikats', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->bigIncrements('idsertif')->unique();
+            $table->varchar('nama_sertif', 255);
+            $table->varchar('no_sertif', 25)->nullable();
+            $table->date('tgl_terbit');
+            $table->date('tgl_kadaluwarsa')->nullable();
+            $table->varchar('instansi', 200);
+            $table->varchar('jenis', 25);
         });
     }
 

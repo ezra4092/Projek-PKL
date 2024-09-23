@@ -60,25 +60,29 @@
     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavAppsMenu">
         <!-- Nested Sidenav Accordion (Apps -> Knowledge Base)-->
         <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapseKnowledgeBase">
-            ISO 37001:2016 SMAP
+            ISO 9001 : 2015
             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
         <!-- Nested Sidenav Accordion (Apps -> User Management)-->
         <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapseUserManagement">
-            ISO 9001: gatau
+            ISO 14001 : 2015
             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
         <!-- Nested Sidenav Accordion (Apps -> Posts Management)-->
         <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
-            ISO 42500: gatau
+            ISO 27001 : 2015
             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
         <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
-            ISO 42500: gatau
+            ISO 37001 : 2016
             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
         <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
-            ISO 42500: gatau
+            ISO 17025 : 2017
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
+            ISO 45001 : 2018
             <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
     </nav>
