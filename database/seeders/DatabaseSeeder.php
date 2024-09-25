@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call(UserData::class); ini dari chatgpt
+        // $this->call(UserData::class);
 
         // \App\Models\User::factory(10)->create();
 

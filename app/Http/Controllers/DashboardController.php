@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,34 +18,39 @@ class DashboardController extends Controller
 
 
     public function upload(){
-        return view('template.upload');
+        return view('template.upload',[
+            'data' => Sertifikat::all(),
+            'title' => 'Sertifikat'
+        ]);
     }
 
     public function uploadproses(Request $request){
-        $file = new File();
-        $file->nama_sertif= $request->nama;
-        $file->no_sertif = $request->no_sertif;
-        $file->tgl_terbit = $request->tgl_terbit;
-        $file->tgl_kadaluwarsa = $request->tgl_terbit;
-        $file->jenis = $request->jenis;
-        $file->save();
-        $file->file = $request->file;
-        // echo 'File Name: ' . $file->getClientOriginalName();
-        // echo '<br>';
-        // echo 'File Extension: ' .$file->getClientOriginalExtension();
-        // echo '<br>';
-        // echo 'File Real Path: ' .$file->getRealPath();
-        // echo '<br>';
-        // echo 'File Size: ' . $file->getSize();
-        // echo '<br>';
-        // echo 'File Mime Type: ' .$file->getMimeType();
-        $destinationPath = "sertif";
+        $sertif = new Sertifikat();
+        $sertif->nama_sertif= $request->nama_sertif;
+        $sertif->no_sertif = $request->no_sertif;
+        $sertif->tgl_terbit = $request->tgl_terbit;
+        $sertif->tgl_kadaluwarsa = $request->tgl_kadaluwarsa;
+        $sertif->instansi = $request->instansi;
+        $sertif->jenis = $request->jenis;
+        $sertif->save();
 
-        if ($file->move($destinationPath, $file->getClientOriginalName())){
-            echo "Upload file berhasil";
-        }
-        else {
-            echo "Upload file gagal";
-        }
+        // $filesertif = $request->file('file');
+        // echo 'File Name: ' . $filesertif->getClientOriginalName();
+        // echo '<br>';
+        // echo 'File Extension: ' .$filesertif->getClientOriginalExtension();
+        // echo '<br>';
+        // echo 'File Real Path: ' .$filesertif->getRealPath();
+        // echo '<br>';
+        // echo 'File Size: ' . $filesertif->getSize();
+        // echo '<br>';
+        // echo 'File Mime Type: ' .$filesertif->getMimeType();
+        // $destinationPath = "sertif";
+
+        // if ($filesertif->move($destinationPath, $filesertif->getClientOriginalName())){
+        //     echo "Upload file berhasil";
+        // }
+        // else {
+        //     echo "Upload file gagal";
+        // }
     }
 }
