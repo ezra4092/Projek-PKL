@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sertifikats', function (Blueprint $table) {
-            $table->bigIncrements('idsertif')->unique();
-            $table->varchar('nama_sertif', 255);
-            $table->varchar('no_sertif', 25)->nullable();
+            $table->bigIncrements('idsertif');
+            $table->string('nama_sertif', 255);
+            $table->string('no_sertif', 25)->nullable();
             $table->date('tgl_terbit');
             $table->date('tgl_kadaluwarsa')->nullable();
-            $table->varchar('instansi', 200);
-            $table->varchar('jenis', 25);
+            $table->string('instansi', 200);
+            $table->string('jenis', 25);
         });
     }
 

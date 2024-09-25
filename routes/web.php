@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return view('login');})->name('login');
 Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 
-Route::get('/main', [DashboardController::class, 'main'])->name('main');
+Route::get('/upload', [DashboardController::class, 'upload'])->name('upload');
+Route::post('/uploadproses', [DashboardController::class, 'uploadproses'])->name('uploadproses');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

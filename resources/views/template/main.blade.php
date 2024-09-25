@@ -517,13 +517,14 @@
                                 <table id="datatablesSimple" class="fs-6">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
+                                            <th width="2%">No.</th>
                                             <th>Nama Sertifikat</th>
                                             <th>Nomor Sertifikat</th>
                                             <th>Tanggal Terbit</th>
                                             <th>Tanggal Kadaluwarsa</th>
                                             <th>Instansi Yang Mengeluarkan</th>
                                             <th>Keterangan</th>
+                                            <th>Dokumen</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -548,10 +549,12 @@
                                             <td>24-06-2027</td>
                                             <td>Tuv Reinland</td>
                                             <td><div class="badge bg-primary text-white rounded-pill">ISO</div></td>
+                                            <td>ayam</td>
                                             <td>
                                                 <button class="btn btn-datatable btn-icon btn-transparent-dark me-2"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                                 <button class="btn btn-datatable btn-icon btn-transparent-dark"><i class="fa-regular fa-trash-can"></i></button>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td>Garrett Winters</td>
