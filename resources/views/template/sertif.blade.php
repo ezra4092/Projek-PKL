@@ -195,298 +195,7 @@
                 <nav class="sidenav shadow-right sidenav-light">
                     <div class="sidenav-menu">
                         <div class="nav accordion" id="accordionSidenav">
-                            <!-- Sidenav Menu Heading (Account)-->
-                            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
-                            <div class="sidenav-menu-heading d-sm-none">Account</div>
-                            <!-- Sidenav Link (Alerts)-->
-                            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
-                            <a class="nav-link d-sm-none" href="#!">
-                                <div class="nav-link-icon"><i data-feather="bell"></i></div>
-                                Alerts
-                                <span class="badge bg-warning-soft text-warning ms-auto">4 New!</span>
-                            </a>
-                            <!-- Sidenav Link (Messages)-->
-                            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
-                            <a class="nav-link d-sm-none" href="#!">
-                                <div class="nav-link-icon"><i data-feather="mail"></i></div>
-                                Messages
-                                <span class="badge bg-success-soft text-success ms-auto">2 New!</span>
-                            </a>
-                            <!-- Sidenav Menu Heading (Core)-->
-                            <div class="sidenav-menu-heading">Core</div>
-                            <!-- Sidenav Accordion (Dashboard)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
-                                <div class="nav-link-icon"><i data-feather="activity"></i></div>
-                                Dashboards
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                                    <a class="nav-link" href="dashboard-1.html">
-                                        Default
-                                        <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
-                                    </a>
-                                    <a class="nav-link" href="dashboard-2.html">Multipurpose</a>
-                                    <a class="nav-link" href="dashboard-3.html">Affiliate</a>
-                                </nav>
-                            </div>
-                            <!-- Sidenav Heading (Custom)-->
-                            <div class="sidenav-menu-heading">Custom</div>
-                            <!-- Sidenav Accordion (Pages)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="nav-link-icon"><i data-feather="grid"></i></div>
-                                Pages
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
-                                    <!-- Nested Sidenav Accordion (Pages -> Account)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAccount" aria-expanded="false" aria-controls="pagesCollapseAccount">
-                                        Account
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="account-profile.html">Profile</a>
-                                            <a class="nav-link" href="account-billing.html">Billing</a>
-                                            <a class="nav-link" href="account-security.html">Security</a>
-                                            <a class="nav-link" href="account-notifications.html">Notifications</a>
-                                        </nav>
-                                    </div>
-                                    <!-- Nested Sidenav Accordion (Pages -> Authentication)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" data-bs-parent="#accordionSidenavPagesMenu">
-                                        <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesAuth">
-                                            <!-- Nested Sidenav Accordion (Pages -> Authentication -> Basic)-->
-                                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthBasic" aria-expanded="false" aria-controls="pagesCollapseAuthBasic">
-                                                Basic
-                                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                            </a>
-                                            <div class="collapse" id="pagesCollapseAuthBasic" data-bs-parent="#accordionSidenavPagesAuth">
-                                                <nav class="sidenav-menu-nested nav">
-                                                    <a class="nav-link" href="auth-login-basic.html">Login</a>
-                                                    <a class="nav-link" href="auth-register-basic.html">Register</a>
-                                                    <a class="nav-link" href="auth-password-basic.html">Forgot Password</a>
-                                                </nav>
-                                            </div>
-                                            <!-- Nested Sidenav Accordion (Pages -> Authentication -> Social)-->
-                                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthSocial" aria-expanded="false" aria-controls="pagesCollapseAuthSocial">
-                                                Social
-                                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                            </a>
-                                            <div class="collapse" id="pagesCollapseAuthSocial" data-bs-parent="#accordionSidenavPagesAuth">
-                                                <nav class="sidenav-menu-nested nav">
-                                                    <a class="nav-link" href="auth-login-social.html">Login</a>
-                                                    <a class="nav-link" href="auth-register-social.html">Register</a>
-                                                    <a class="nav-link" href="auth-password-social.html">Forgot Password</a>
-                                                </nav>
-                                            </div>
-                                        </nav>
-                                    </div>
-                                    <!-- Nested Sidenav Accordion (Pages -> Error)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" data-bs-parent="#accordionSidenavPagesMenu">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="error-400.html">400 Error</a>
-                                            <a class="nav-link" href="error-401.html">401 Error</a>
-                                            <a class="nav-link" href="error-403.html">403 Error</a>
-                                            <a class="nav-link" href="error-404-1.html">404 Error 1</a>
-                                            <a class="nav-link" href="error-404-2.html">404 Error 2</a>
-                                            <a class="nav-link" href="error-500.html">500 Error</a>
-                                            <a class="nav-link" href="error-503.html">503 Error</a>
-                                            <a class="nav-link" href="error-504.html">504 Error</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link" href="pricing.html">Pricing</a>
-                                    <a class="nav-link" href="invoice.html">Invoice</a>
-                                </nav>
-                            </div>
-                            <!-- Sidenav Accordion (Applications)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseApps" aria-expanded="false" aria-controls="collapseApps">
-                                <div class="nav-link-icon"><i data-feather="globe"></i></div>
-                                Applications
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseApps" data-bs-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavAppsMenu">
-                                    <!-- Nested Sidenav Accordion (Apps -> Knowledge Base)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#appsCollapseKnowledgeBase" aria-expanded="false" aria-controls="appsCollapseKnowledgeBase">
-                                        Knowledge Base
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="appsCollapseKnowledgeBase" data-bs-parent="#accordionSidenavAppsMenu">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="knowledge-base-home-1.html">Home 1</a>
-                                            <a class="nav-link" href="knowledge-base-home-2.html">Home 2</a>
-                                            <a class="nav-link" href="knowledge-base-category.html">Category</a>
-                                            <a class="nav-link" href="knowledge-base-article.html">Article</a>
-                                        </nav>
-                                    </div>
-                                    <!-- Nested Sidenav Accordion (Apps -> User Management)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#appsCollapseUserManagement" aria-expanded="false" aria-controls="appsCollapseUserManagement">
-                                        User Management
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="appsCollapseUserManagement" data-bs-parent="#accordionSidenavAppsMenu">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="user-management-list.html">Users List</a>
-                                            <a class="nav-link" href="user-management-edit-user.html">Edit User</a>
-                                            <a class="nav-link" href="user-management-add-user.html">Add User</a>
-                                            <a class="nav-link" href="user-management-groups-list.html">Groups List</a>
-                                            <a class="nav-link" href="user-management-org-details.html">Organization Details</a>
-                                        </nav>
-                                    </div>
-                                    <!-- Nested Sidenav Accordion (Apps -> Posts Management)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#appsCollapsePostsManagement" aria-expanded="false" aria-controls="appsCollapsePostsManagement">
-                                        Posts Management
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="appsCollapsePostsManagement" data-bs-parent="#accordionSidenavAppsMenu">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="blog-management-posts-list.html">Posts List</a>
-                                            <a class="nav-link" href="blog-management-create-post.html">Create Post</a>
-                                            <a class="nav-link" href="blog-management-edit-post.html">Edit Post</a>
-                                            <a class="nav-link" href="blog-management-posts-admin.html">Posts Admin</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <!-- Sidenav Accordion (Flows)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
-                                <div class="nav-link-icon"><i data-feather="repeat"></i></div>
-                                Flows
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav">
-                                    <a class="nav-link" href="multi-tenant-select.html">Multi-Tenant Registration</a>
-                                    <a class="nav-link" href="wizard.html">Wizard</a>
-                                </nav>
-                            </div>
-                            <!-- Sidenav Heading (UI Toolkit)-->
-                            <div class="sidenav-menu-heading">UI Toolkit</div>
-                            <!-- Sidenav Accordion (Layout)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="nav-link-icon"><i data-feather="layout"></i></div>
-                                Layout
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" data-bs-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
-                                    <!-- Nested Sidenav Accordion (Layout -> Navigation)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutSidenavVariations" aria-expanded="false" aria-controls="collapseLayoutSidenavVariations">
-                                        Navigation
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="collapseLayoutSidenavVariations" data-bs-parent="#accordionSidenavLayout">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="layout-static.html">Static Sidenav</a>
-                                            <a class="nav-link" href="layout-dark.html">Dark Sidenav</a>
-                                            <a class="nav-link" href="layout-rtl.html">RTL Layout</a>
-                                        </nav>
-                                    </div>
-                                    <!-- Nested Sidenav Accordion (Layout -> Container Options)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutContainers" aria-expanded="false" aria-controls="collapseLayoutContainers">
-                                        Container Options
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="collapseLayoutContainers" data-bs-parent="#accordionSidenavLayout">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="layout-boxed.html">Boxed Layout</a>
-                                            <a class="nav-link" href="layout-fluid.html">Fluid Layout</a>
-                                        </nav>
-                                    </div>
-                                    <!-- Nested Sidenav Accordion (Layout -> Page Headers)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsPageHeaders" aria-expanded="false" aria-controls="collapseLayoutsPageHeaders">
-                                        Page Headers
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="collapseLayoutsPageHeaders" data-bs-parent="#accordionSidenavLayout">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="header-simplified.html">Simplified</a>
-                                            <a class="nav-link" href="header-compact.html">Compact</a>
-                                            <a class="nav-link" href="header-overlap.html">Content Overlap</a>
-                                            <a class="nav-link" href="header-breadcrumbs.html">Breadcrumbs</a>
-                                            <a class="nav-link" href="header-light.html">Light</a>
-                                        </nav>
-                                    </div>
-                                    <!-- Nested Sidenav Accordion (Layout -> Starter Layouts)-->
-                                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsStarterTemplates" aria-expanded="false" aria-controls="collapseLayoutsStarterTemplates">
-                                        Starter Layouts
-                                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="collapseLayoutsStarterTemplates" data-bs-parent="#accordionSidenavLayout">
-                                        <nav class="sidenav-menu-nested nav">
-                                            <a class="nav-link" href="starter-default.html">Default</a>
-                                            <a class="nav-link" href="starter-minimal.html">Minimal</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <!-- Sidenav Accordion (Components)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents">
-                                <div class="nav-link-icon"><i data-feather="package"></i></div>
-                                Components
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseComponents" data-bs-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav">
-                                    <a class="nav-link" href="alerts.html">Alerts</a>
-                                    <a class="nav-link" href="avatars.html">Avatars</a>
-                                    <a class="nav-link" href="badges.html">Badges</a>
-                                    <a class="nav-link" href="buttons.html">Buttons</a>
-                                    <a class="nav-link" href="cards.html">
-                                        Cards
-                                        <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
-                                    </a>
-                                    <a class="nav-link" href="dropdowns.html">Dropdowns</a>
-                                    <a class="nav-link" href="forms.html">
-                                        Forms
-                                        <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
-                                    </a>
-                                    <a class="nav-link" href="modals.html">Modals</a>
-                                    <a class="nav-link" href="navigation.html">Navigation</a>
-                                    <a class="nav-link" href="progress.html">Progress</a>
-                                    <a class="nav-link" href="step.html">Step</a>
-                                    <a class="nav-link" href="timeline.html">Timeline</a>
-                                    <a class="nav-link" href="toasts.html">Toasts</a>
-                                    <a class="nav-link" href="tooltips.html">Tooltips</a>
-                                </nav>
-                            </div>
-                            <!-- Sidenav Accordion (Utilities)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
-                                <div class="nav-link-icon"><i data-feather="tool"></i></div>
-                                Utilities
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseUtilities" data-bs-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav">
-                                    <a class="nav-link" href="animations.html">Animations</a>
-                                    <a class="nav-link" href="background.html">Background</a>
-                                    <a class="nav-link" href="borders.html">Borders</a>
-                                    <a class="nav-link" href="lift.html">Lift</a>
-                                    <a class="nav-link" href="shadows.html">Shadows</a>
-                                    <a class="nav-link" href="typography.html">Typography</a>
-                                </nav>
-                            </div>
-                            <!-- Sidenav Heading (Addons)-->
-                            <div class="sidenav-menu-heading">Plugins</div>
-                            <!-- Sidenav Link (Charts)-->
-                            <a class="nav-link" href="charts.html">
-                                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                                Charts
-                            </a>
-                            <!-- Sidenav Link (Tables)-->
-                            <a class="nav-link" href="tables.html">
-                                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                                Tables
-                            </a>
+                            @include('template.nav')
                         </div>
                     </div>
                     <!-- Sidenav Footer-->
@@ -515,7 +224,7 @@
                                             <i class="me-1" data-feather="users"></i>
                                             Manage Groups
                                         </a> --}}
-                                        <a class="btn btn-sm btn-light text-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                                        <a class="btn btn-sm btn-light text-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambahData">
                                             <i class="me-1" data-feather="user-plus"></i>
                                             Tambah Data
                                         </a>
@@ -538,7 +247,7 @@
                                             <th>Tanggal Kadaluwarsa</th>
                                             <th>Instansi Yang Mengeluarkan</th>
                                             <th>Jenis</th>
-                                            <th>Dokumen</th>
+                                            {{-- <th>Dokumen</th> --}}
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -554,24 +263,30 @@
                                     </tfoot> --}}
                                     <tbody>
                                         @php $no = 1; @endphp
-                                        @foreach ($data as $row)
+                                        @foreach ($data as $sertif)
                                         <tr>
                                             <td width="5%">{{$no++}}</td>
-                                            <td>{{$row->nama_sertif}}</td>
-                                            <td>{{$row->no_sertif}}</td>
-                                            <td>{{$row->tgl_terbit}}</td>
-                                            <td>{{$row->tgl_kadaluwarsa}}</td>
-                                            <td>{{$row->instansi}}</td>
-                                            <td>{{$row->jenis}}</td>
-                                            <td>{{$row->file}}</td>
+                                            <td>{{$sertif->nama_sertif}}</td>
+                                            <td>{{$sertif->no_sertif}}</td>
+                                            <td>{{$sertif->tgl_terbit}}</td>
+                                            <td>{{$sertif->tgl_kadaluwarsa}}</td>
+                                            <td>{{$sertif->instansi}}</td>
+                                            <td>{{$sertif->jenis}}</td>
+                                            {{-- <td>{{$sertif->file}}</td> --}}
                                             <td>
-                                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="user-management-edit-user.html"  data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></a>
-                                                <a class="btn btn-datatable btn-icon btn-transparent-dark" href="#!"><i data-feather="trash-2"></i></a>
+                                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" data-bs-toggle="modal" data-bs-target="#editData{{ $sertif->id_sertif }}" data-id='{{ $sertif->id_sertif }}' ><i data-feather="edit"></i></a>
+                                                {{-- <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" data-bs-toggle="modal" data-bs-target="#editData" data-id_sertif='{{ $sertif->id_sertif }}' data-nama_sertif='{{ $sertif->nama_sertif }}' data-no_sertif='{{ $sertif->no_sertif }}' data-tgl_terbit='{{$sertif->tgl_terbit}}' data-tgl_kadaluwarsa="{{$sertif->tgl_kadaluwarsa}}" ><i data-feather="edit"></i></a> --}}
+                                                <form action="{{ route('hapus-sertif') }}" method="POST">
+                                                    <input type="hidden" name="idsertif" value="{{$sertif->idsertif }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-datatable btn-icon btn-transparent-dark" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i data-feather="trash-2"></i></button>
+
+                                                </form>
                                             </td>
                                         </tr>
 
                                         {{-- Modal edit data --}}
-                                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="editData{{$sertif->id_sertif}}" tabindex="-1" role="dialog" aria-labelledby="editDataLabel{{$sertif->id_sertif}}" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -579,67 +294,48 @@
                                                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form class="user" action="{{ route('uploadproses') }}" method="POST" enctype="multipart/form-data">
-                                                            {{-- <input type="hidden" name="idsertif" value="{{$row->id_sertif}}"> --}}
+                                                        <form class="user" action="{{ route('edit-sertif') }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
-                                                            <form>
-                                                                <!-- Form Row-->
-                                                                {{-- <div class="row gx-3 mb-3"> --}}
-                                                                    <!-- Form Group (first name)-->
-                                                                    <div class="mb-3">
-                                                                        <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
-                                                                        <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="" />
-                                                                    </div>
-                                                                    <!-- Form Group (last name)-->
-                                                                    <div class="mb-3">
-                                                                        <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
-                                                                        <input class="form-control" id="no_sertif" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" value="" />
-                                                                    </div>
-                                                                {{-- </div> --}}
-                                                                <div class="mb-3">
-                                                                    <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat</label>
-                                                                    <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="" />
-                                                                </div>
-                                                                <!-- Form Group (Group Selection Checkboxes)-->
-                                                                <div class="mb-3">
-                                                                    <label class="small mb-1">Group(s)</label>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" id="groupSales" type="checkbox" value="" />
-                                                                        <label class="form-check-label" for="groupSales">Sales</label>
-                                                                    </div>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" id="groupDevs" type="checkbox" value="" />
-                                                                        <label class="form-check-label" for="groupDevs">Developers</label>
-                                                                    </div>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" id="groupMarketing" type="checkbox" value="" />
-                                                                        <label class="form-check-label" for="groupMarketing">Marketing</label>
-                                                                    </div>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" id="groupManagers" type="checkbox" value="" />
-                                                                        <label class="form-check-label" for="groupManagers">Managers</label>
-                                                                    </div>
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" id="groupCustomer" type="checkbox" value="" />
-                                                                        <label class="form-check-label" for="groupCustomer">Customer</label>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- Form Group (Roles)-->
-                                                                <div class="mb-3">
-                                                                    <label class="small mb-1">Role</label>
-                                                                    <select class="form-select" aria-label="Default select example">
-                                                                        <option selected="" disabled="">Select a role:</option>
-                                                                        <option value="administrator">Administrator</option>
-                                                                        <option value="registered">Registered</option>
-                                                                        <option value="edtior">Editor</option>
-                                                                        <option value="guest">Guest</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- Submit button-->
-                                                                <button class="btn btn-primary" type="button">Add user</button>
+                                                            <input type="hidden" name="idsertif" value="{{$sertif->id_sertif}}">
+                                                            <div class="mb-3">
+                                                                <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
+                                                                <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="{{$sertif->nama_sertif}}" />
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
+                                                                <input class="form-control" id="no_sertif" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" value="{{$sertif->no_sertif}}" />
+                                                            </div>
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat</label>
+                                                            <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="{{$sertif->tgl_terbit}}" />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsan Sertifikat</label>
+                                                            <input class="form-control" id="tgl_kadaluwarsa" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" value="{{$sertif->tgl_kadaluwarsa}}" />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1" for="instansi">Instansi Yang Mengeluarkan</label>
+                                                            <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" value="{{$sertif->instansi}}" />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1">Jenis Sertifikat</label>
+                                                            <select class="form-select" aria-label="Default select example" id="jenis" name="jenis" value="{{$sertif->jenis}}">
+                                                                <option selected="" disabled="">Pilih jenis sertifikat</option>
+                                                                <option value="Sertifikat Umum">Sertifikat Umum</option>
+                                                                <option value="Sertifikat CSR">Sertifikat CSR</option>
+                                                                <option value="Penghargaan Umum">Penghargaan Umum</option>
+                                                                <option value="Sertifikat ISO 9001 : 2015">Sertifikat ISO 9001 : 2015</option>
+                                                                <option value="Sertifikat ISO 14001 : 2015">Sertifikat ISO 14001 : 2015</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- Submit button-->
+                                                        <div class="d-flex justify-content-between">
+                                                            <button class="btn btn-primary" type="submit">Edit Data</button>
+                                                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                                                        </div>
                                                             </form>
                                                     </div>
-                                                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -649,7 +345,7 @@
                                 </table>
 
                                 {{-- Modal tambah data --}}
-                                <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="tambahData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -657,67 +353,48 @@
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form class="user" action="{{ route('uploadproses') }}" method="POST" enctype="multipart/form-data">
-                                                    {{-- <input type="hidden" name="idsertif" value="{{$row->id_sertif}}"> --}}
+                                                <form class="user" action="{{ route('tambah-sertif') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
-                                                    <form>
-                                                        <!-- Form Row-->
-                                                        {{-- <div class="row gx-3 mb-3"> --}}
-                                                            <!-- Form Group (first name)-->
                                                             <div class="mb-3">
                                                                 <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
                                                                 <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="" />
                                                             </div>
-                                                            <!-- Form Group (last name)-->
                                                             <div class="mb-3">
                                                                 <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
                                                                 <input class="form-control" id="no_sertif" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" value="" />
                                                             </div>
-                                                        {{-- </div> --}}
                                                         <div class="mb-3">
                                                             <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat</label>
                                                             <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="" />
                                                         </div>
-                                                        <!-- Form Group (Group Selection Checkboxes)-->
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsan Sertifikat</label>
+                                                            <input class="form-control" id="tgl_kadaluwarsa" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" value="" />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1" for="instansi">Instansi Yang Mengeluarkan</label>
+                                                            <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" value="" />
+                                                        </div>
                                                         <div class="mb-3">
                                                             <label class="small mb-1">Jenis Sertifikat</label>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" id="groupSales" type="radiobutton" value="" />
-                                                                <label class="form-check-label" for="groupSales">Sales</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" id="groupDevs" type="checkbox" value="" />
-                                                                <label class="form-check-label" for="groupDevs">Developers</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" id="groupMarketing" type="checkbox" value="" />
-                                                                <label class="form-check-label" for="groupMarketing">Marketing</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" id="groupManagers" type="checkbox" value="" />
-                                                                <label class="form-check-label" for="groupManagers">Managers</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" id="groupCustomer" type="checkbox" value="" />
-                                                                <label class="form-check-label" for="groupCustomer">Customer</label>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Form Group (Roles)-->
-                                                        <div class="mb-3">
-                                                            <label class="small mb-1">Role</label>
-                                                            <select class="form-select" aria-label="Default select example">
-                                                                <option selected="" disabled="">Select a role:</option>
-                                                                <option value="administrator">Administrator</option>
-                                                                <option value="registered">Registered</option>
-                                                                <option value="edtior">Editor</option>
-                                                                <option value="guest">Guest</option>
+                                                            <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
+                                                                <option selected="" disabled="">Pilih jenis sertifikat</option>
+                                                                <option value="Sertifikat Umum">Sertifikat Umum</option>
+                                                                <option value="Sertifikat CSR">Sertifikat CSR</option>
+                                                                <option value="Penghargaan Umum">Penghargaan Umum</option>
+                                                                <option value="Sertifikat ISO 9001 : 2015">Sertifikat ISO 9001 : 2015</option>
+                                                                <option value="Sertifikat ISO 14001 : 2015">Sertifikat ISO 14001 : 2015</option>
                                                             </select>
                                                         </div>
                                                         <!-- Submit button-->
-                                                        <button class="btn btn-primary" type="button">Add user</button>
+                                                        <div class="d-flex justify-content-between">
+                                                            <button class="btn btn-primary" type="submit">Tambah Data</button>
+                                                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                                                        </div>
+
                                                     </form>
                                             </div>
-                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div>
+                                            {{-- <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div> --}}
                                         </div>
                                     </div>
                                 </div>

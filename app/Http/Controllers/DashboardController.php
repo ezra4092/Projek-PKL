@@ -19,9 +19,6 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function sertif(){
-        return view('template.sertif');
-    }
 
 
     public function upload(){
@@ -31,7 +28,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function uploadproses(Request $request){
+    public function tambah(Request $request){
         $sertif = new Sertifikat();
         $sertif->nama_sertif= $request->nama_sertif;
         $sertif->no_sertif = $request->no_sertif;
@@ -40,6 +37,7 @@ class DashboardController extends Controller
         $sertif->instansi = $request->instansi;
         $sertif->jenis = $request->jenis;
         $sertif->save();
+        return redirect()->route('main');
 
         // $filesertif = $request->file('file');
         // echo 'File Name: ' . $filesertif->getClientOriginalName();
@@ -59,5 +57,27 @@ class DashboardController extends Controller
         // else {
         //     echo "Upload file gagal";
         // }
+    }
+
+    public function hapus(Request $request){
+        $sertif = Sertifikat::where('idsertif', $request->idsertif);
+        $sertif->delete();
+        return redirect()->route('main');
+    }
+
+
+    public function edit(Request $request){
+        // dd($request->all());
+        $sertif = Sertifikat::find($request->idsertif);
+        $sertif->update([
+            'nama_sertif' => $request->nama_sertif,
+            'no_sertif' => $request->no_sertif,
+            'tgl_terbit,' => $request->tgl_terbit,
+            'tgl_kadaluwarsa' => $request->tgl_kadaluwarsa,
+            'instansi' => $request->instansi,
+            'jenis' => $request->jenis
+        ]);
+        $sertif->save();
+        return redirect()->route('main');
     }
 }

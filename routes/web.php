@@ -20,9 +20,12 @@ Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 // Route::get('/sertif', [DashboardController::class, 'sertif'])->name('sertif');
 
 Route::get('/main', [DashboardController::class, 'main'])->name('main');
+Route::post('tambah-sertifs', [DashboardController::class, 'tambah'])->name('tambah-sertif');
+Route::post('/hapus-sertif', [DashboardController::class, 'hapus'])->name('hapus-sertif');
+Route::post('/edit-sertif', [DashboardController::class, 'edit'])->name('edit-sertif');
 
-Route::get('/upload', [DashboardController::class, 'upload'])->name('upload');
-Route::post('/uploadproses', [DashboardController::class, 'uploadproses'])->name('uploadproses');
+// Route::get('/upload', [DashboardController::class, 'upload'])->name('upload');
+// Route::post('/uploadproses', [DashboardController::class, 'uploadproses'])->name('uploadproses');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

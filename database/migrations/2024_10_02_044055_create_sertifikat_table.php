@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sertifikats', function (Blueprint $table) {
+        Schema::create('sertifikat', function (Blueprint $table) {
             $table->bigIncrements('idsertif');
             $table->string('nama_sertif', 255);
             $table->string('no_sertif', 25)->nullable();
             $table->date('tgl_terbit');
             $table->date('tgl_kadaluwarsa')->nullable();
             $table->string('instansi', 200);
-            $table->string('jenis', 25);
+            $table->string('jenis', 100);
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sertifikats');
+        Schema::dropIfExists('sertifikat');
     }
 };
