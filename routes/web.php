@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SertifikatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,12 @@ Route::get('/', function () {return view('login');})->name('login');
 Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 // Route::get('/sertif', [DashboardController::class, 'sertif'])->name('sertif');
 
-Route::get('/main', [DashboardController::class, 'main'])->name('main');
-Route::post('tambah-sertifs', [DashboardController::class, 'tambah'])->name('tambah-sertif');
-Route::post('/hapus-sertif', [DashboardController::class, 'hapus'])->name('hapus-sertif');
-Route::post('/edit-sertif', [DashboardController::class, 'edit'])->name('edit-sertif');
+Route::get('/main', [SertifikatController::class, 'main'])->name('main');
+Route::post('tambah-sertifs', [SertifikatController::class, 'tambah'])->name('tambah-sertif');
+Route::post('/hapus-sertif', [SertifikatController::class, 'hapus'])->name('hapus-sertif');
+Route::post('/edit-sertif', [SertifikatController::class, 'edit'])->name('edit-sertif');
+
+
 
 // Route::get('/upload', [DashboardController::class, 'upload'])->name('upload');
 // Route::post('/uploadproses', [DashboardController::class, 'uploadproses'])->name('uploadproses');

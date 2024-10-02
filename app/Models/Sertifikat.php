@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sertifikat extends Model
 {
-    public $table = 'sertifikats';
+    public $table = 'sertifikat';
     public $timestamps = false;
     protected $fillable = [
         'nama_sertif',
