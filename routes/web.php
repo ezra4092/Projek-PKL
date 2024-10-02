@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {return view('login');})->name('login');
 Route::post('/proses', [LoginController::class, 'login'])->name('proses');
+// Route::get('/sertif', [DashboardController::class, 'sertif'])->name('sertif');
 
 Route::get('/main', [DashboardController::class, 'main'])->name('main');
 

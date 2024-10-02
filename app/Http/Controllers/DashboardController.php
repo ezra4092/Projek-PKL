@@ -13,7 +13,14 @@ class DashboardController extends Controller
     }
 
     public function main(){
-        return view('template.main');
+        return view('template.sertif',[
+            'data' => Sertifikat::all(),
+            'title' => 'Sertifikat'
+        ]);
+    }
+
+    public function sertif(){
+        return view('template.sertif');
     }
 
 

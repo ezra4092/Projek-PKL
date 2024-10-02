@@ -62,7 +62,7 @@
                 <footer class="footer-admin mt-auto footer-dark">
                     <div class="container-xl px-4">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright © Jrae 2024</div>
+                            <div class="col-md-6 small">Copyright © Ezra 2024</div>
                             <div class="col-md-6 text-md-end small">
                                 {{-- ini mau bikin tapi bingung mau kaya gimana  --}}
                                 <a href="#!">Privacy Policy</a>

@@ -10,7 +10,7 @@
       <div class="container">
         {{-- @foreach ($data as $row) --}}
          <form class="user" action="{{ route('uploadproses') }}" method="POST" enctype="multipart/form-data">
-            {{-- <input type="hidden" name="idsertif" value="{{ }}"> --}}
+            {{-- <input type="hidden" name="idsertif" value="{{$row->id_sertif}}"> --}}
             @csrf
             <div class="mt-5 mb-3">
                 <label for="nama" class="form-label">Masukan nama sertifikat</label>
@@ -37,10 +37,10 @@
                 <label><input type="radio" name="jenis" value="penghargaan umum" class="form-label"> Penghargaan umum</label>
                 <label><input type="radio" name="jenis" value="sertifikat iso" class="form-label"> Sertifikat iso</label>\
              </div>
-             {{-- <div class="mb-3">
+             <div class="mb-3">
                 <label for="formFile" class="form-label">Masukan file</label>
                 <input class="form-control" name="file" type="file" id="file">
-             </div> --}}
+             </div>
              <div class="d-flex align-items-center justify-content-end mt-4 mb-0">
                 <button class="btn btn-primary" type="submit">Kirim</button>
              </div>
