@@ -15,7 +15,8 @@ class Sertifikat extends Model
         'tgl_terbit',
         'tgl_kadaluwarsa',
         'instansi',
-        'jenis'
+        'jenis',
+        'dokumen'
     ];
     use HasFactory;
 }

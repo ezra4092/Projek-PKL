@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('tgl_kadaluwarsa')->nullable();
             $table->string('instansi', 200);
             $table->string('jenis', 100);
+            $table->string('dokumen', 100);
         });
     }
 
