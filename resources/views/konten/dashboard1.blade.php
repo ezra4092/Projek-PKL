@@ -38,7 +38,7 @@
                   <th>Tanggal Kadaluwarsa</th>
                   <th>Instansi Yang Mengeluarkan</th>
                   <th>Jenis</th>
-                  <th>Dokumen</th>
+                  <th>File</th>
                   <th>Aksi</th>
                </tr>
             </thead>
@@ -52,7 +52,7 @@
                 <th>Tanggal Kadaluwarsa</th>
                 <th>Instansi Yang Mengeluarkan</th>
                 <th>Jenis</th>
-                <th>Dokumen</th>
+                <th>File</th>
                 <th>Aksi</th>
                </tr>
             </tfoot>
@@ -79,9 +79,9 @@
                     data-instansi='{{ $sertif->instansi }}'
                     data-jenis='{{ $sertif->jenis }}'
                     data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                    <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark"
+                     <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark"
                         data-bs-toggle="modal" data-bs-target="#hapusModal" id="hapus"
-                        data-id='{{ $sertif->id_sertif }}'><i class="fa-solid fa-trash"></i></button>
+                        data-id='{{ $sertif->id }}'><i class="fa-solid fa-trash"></i></button>
                   </td>
                </tr>
                @endforeach
