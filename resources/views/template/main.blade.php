@@ -10,7 +10,7 @@
         <title>Users List - SB Admin Pro</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="style/styles.css" rel="stylesheet" />
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
     </head>
@@ -22,7 +22,7 @@
             <!-- * * Tip * * You can use text or an image for your navbar brand.-->
             <!-- * * * * * * When using an image, we recommend the SVG format.-->
             <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">Web Sertifikat Sysdur</a>
+            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">Web Sertifikat UBPP LM</a>
             <!-- Navbar Search Input-->
             <!-- * * Note: * * Visible only on and above the lg breakpoint-->
             {{-- <form class="form-inline me-auto d-none d-lg-block me-3">
@@ -195,7 +195,7 @@
                 <nav class="sidenav shadow-right sidenav-light">
                     <div class="sidenav-menu">
                         <div class="nav accordion" id="accordionSidenav">
-                            @include('template.nav')
+                            @include('template.sidebar')
                         </div>
                     </div>
                     <!-- Sidenav Footer-->
@@ -210,12 +210,12 @@
             <div id="layoutSidenav_content">
                 <main>
                     @yield('konten')
-                    
+
                 </main>
                 <footer class="footer-admin mt-auto footer-light">
                     <div class="container-xl px-4">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright © Your Website 2021</div>
+                            <div class="col-md-6 small">Copyright © Ezra 2024</div>
                             <div class="col-md-6 text-md-end small">
                                 <a href="#!">Privacy Policy</a>
                                 ·

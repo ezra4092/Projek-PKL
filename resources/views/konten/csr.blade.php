@@ -7,7 +7,7 @@
             <div class="col-auto mb-3">
                <h1 class="page-header-title">
                   <div class="page-header-icon"><i data-feather="user"></i></div>
-                  Daftar Sertifikat
+                  Daftar Sertifikat CSR
                </h1>
             </div>
             <div class="col-12 col-xl-auto mb-3">

@@ -28,33 +28,45 @@
 <div class="sidenav-menu-heading">Sertifikat</div>
 <!-- Sidenav Accordion (Pages)-->
 <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-   <div class="nav-link-icon"><i data-feather="grid"></i></div>
-   Sertifikat gatau
+   <div class="nav-link-icon"><i data-feather="award"></i></div>
+   Sertifikat Umum
    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
 <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
       <!-- Nested Sidenav Accordion (Pages -> Account)-->
-      <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseAccount">
-         Penghargaan
+      <a class="nav-link collapsed" href="csr" aria-controls="pagesCollapseAccount">
+         Sertifikat CSR
          <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
       </a>
       <!-- Nested Sidenav Accordion (Pages -> Authentication)-->
-      <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseAuth">
-         Proper
+      <a class="nav-link collapsed" href="hse" aria-controls="pagesCollapseAuth">
+         Sertifikat HSE
          <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
       </a>
       <!-- Nested Sidenav Accordion (Pages -> Error)-->
       <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseError">
-         SNI Award
+         Penghargaan
          <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
       </a>
+      <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseError">
+        Proper
+        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+     </a>
+     <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseError">
+        SWA
+        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+     </a>
+     <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseError">
+        SNI Award
+        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+     </a>
    </nav>
 </div>
 <!-- Sidenav Accordion (Applications)-->
 <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseApps" aria-expanded="false" aria-controls="collapseApps">
-   <div class="nav-link-icon"><i data-feather="globe"></i></div>
-   ISO
+   <div class="nav-link-icon"><i data-feather="shield"></i></div>
+   Sertifikat ISO
    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
 <div class="collapse" id="collapseApps" data-bs-parent="#accordionSidenav">
@@ -89,14 +101,14 @@
    </nav>
 </div>
 <!-- Sidenav Accordion (Flows)-->
-<a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
-   <div class="nav-link-icon"><i data-feather="repeat"></i></div>
-   Flows
+<a class="nav-link collapsed" href="user" >
+   <div class="nav-link-icon"><i data-feather="users"></i></div>
+   Users
    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
-<div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
+{{-- <div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
    <nav class="sidenav-menu-nested nav">
       <a class="nav-link" href="multi-tenant-select.html">Multi-Tenant Registration</a>
       <a class="nav-link" href="wizard.html">Wizard</a>
    </nav>
-</div>
+</div> --}}

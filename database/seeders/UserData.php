@@ -16,16 +16,14 @@ class UserData extends Seeder
     {
         $user = [
             [
-                'username' => 'desi',
-                'password' =>  Hash::make('desi1'),
                 'nama' => 'Desi Nur',
-                'level' =>'admin'
+                'username' => 'desi',
+                'password' =>  Hash::make('desi123')
             ],
             [
+                'nama' => 'Ezra Faira',
                 'username' => 'ezra',
-                'password' => Hash::make('1234'),
-                'nama' => 'Ezraa',
-                'level' =>'admin'
+                'password' => Hash::make('1234')
             ]
             ];
 
