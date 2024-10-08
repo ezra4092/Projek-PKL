@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +27,10 @@ Route::post('tambah-sertifs', [SertifikatController::class, 'tambah'])->name('ta
 Route::post('/hapus-sertif', [SertifikatController::class, 'hapus'])->name('hapus-sertif');
 Route::post('/edit-sertif', [SertifikatController::class, 'edit'])->name('edit-sertif');
 
-
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::post('/tambah-user', [UserController::class, 'tambah'])->name('tambah-user');
+Route::post('/hapus-user', [UserController::class, 'hapus'])->name('hapus-user');
+Route::post('/edit-user', [UserController::class, 'edit'])->name('edit-user');
 
 // Route::get('/upload', [DashboardController::class, 'upload'])->name('upload');
 // Route::post('/uploadproses', [DashboardController::class, 'uploadproses'])->name('uploadproses');
