@@ -202,7 +202,7 @@
                     <div class="sidenav-footer">
                         <div class="sidenav-footer-content">
                             <div class="sidenav-footer-subtitle">Logged in as:</div>
-                            <div class="sidenav-footer-title">Valerie Luna</div>
+                            <div class="sidenav-footer-title"></div>
                         </div>
                     </div>
                 </nav>
@@ -210,7 +210,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     @yield('konten')
-                    
+
                 </main>
                 <footer class="footer-admin mt-auto footer-light">
                     <div class="container-xl px-4">

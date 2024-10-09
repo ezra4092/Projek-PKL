@@ -173,7 +173,7 @@
                         <h6 class="dropdown-header d-flex align-items-center">
                             <img class="dropdown-user-img" src="assets/img/illustrations/profiles/profile-1.png" />
                             <div class="dropdown-user-details">
-                                <div class="dropdown-user-details-name">Valerie Luna</div>
+                                <div class="dropdown-user-details-name">{{Auth::user()->nama}}</div>
                                 <div class="dropdown-user-details-email"><a href="/cdn-cgi/l/email-protection" class="_cf_email_" data-cfemail="5f29332a313e1f3e3033713c3032">[email&#160;protected]</a></div>
                             </div>
                         </h6>
@@ -493,7 +493,7 @@
                     <div class="sidenav-footer">
                         <div class="sidenav-footer-content">
                             <div class="sidenav-footer-subtitle">Logged in as:</div>
-                            <div class="sidenav-footer-title">Valerie Luna</div>
+                            <div class="sidenav-footer-title">{{Auth::user()->nama}}</div>
                         </div>
                     </div>
                 </nav>

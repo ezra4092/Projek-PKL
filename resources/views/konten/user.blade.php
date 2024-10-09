@@ -57,7 +57,8 @@
                         data-id='{{ $user->id}}'
                         data-nama='{{ $user->nama }}'
                         data-username='{{ $user->username }}'
-                        data-password='{{ $user->password }}'data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
+                        data-password='{{ $user->password }}'
+                        data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
                      <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark"
                         data-bs-toggle="modal" data-bs-target="#hapusModal" id="hapus"
                         data-id='{{ $user->id }}'><i class="fa-solid fa-trash"></i></button>
@@ -86,11 +87,11 @@
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="username">Username</label>
-                           <input class="form-control" id="username" name="username" type="text" placeholder="Masukkan username" value="{{$user->username}}" />
+                           <input class="form-control" id="username" name="username" type="text" placeholder="Masukkan username" value="" />
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control mt-2" name="password" id="password" placeholder="Masukkan password" value="{{$user->password}}">
+                            <input type="password" class="form-control mt-2" name="password" id="password" placeholder="Masukkan password" value="">
                             <div style="color:red; font-size:10px">
                                 *tidak perlu diisi jika tidak diganti
                             </div>
@@ -190,20 +191,11 @@
      $(document).on('click', '#edit', function(e) {
        var id = $(this).attr("data-id");
        var nama = $(this).attr("data-nama");
-       var no = $(this).attr("data-no");
-       var terbit = $(this).attr("data-terbit");
-       var kadaluwarsa = $(this).attr('data-kadaluwarsa');
-       var instansi = $(this).attr('data-instansi');
-       var jenis = $(this).attr('data-jenis');
-       var dokumen = $(this).attr('data-dokumen');
-       $('#id_sertif').val(id);
+       var username = $(this).attr("data-username");
+       var password = $(this).attr("data-password");
+       $('#id').val(id);
        $('#nama').val(nama);
-       $('#username').val(no);
-       $('#password').val(terbit);
-       $('#tgl_kadaluwarsa').val(kadaluwarsa);
-       $('#instansi').val(instansi);
-       $('#jenis').val(jenis);
-       $('#dokumen').val(dokumen);
+       $('#username').val(username);
    });
 </script>
 @endsection

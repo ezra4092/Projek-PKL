@@ -41,7 +41,7 @@ class UserController extends Controller
         else {
             $akun->nama = $request->nama;
             $akun->username = $request->username;
-            $akun->password = $request->password;
+            $akun->password = Hash::make($request->password);
             $akun->save();
         }
         return redirect()->route('user')->with(['edit' => true, 'message' => 'Akun Berhasil diedit']);
