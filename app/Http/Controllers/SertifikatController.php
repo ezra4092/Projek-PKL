@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Sertifikat;
-
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class SertifikatController extends Controller
@@ -14,83 +14,83 @@ class SertifikatController extends Controller
         ]);
     }
 
-    public function tambah(Request $request){
-        $this->validate($request, [
-            'nama_sertif' => 'required|string|max:255', // Validasi nama sertif
-            'dokumen' => 'required|mimes:doc,docx,pdf,xls,xlsx,ppt,pptx|max:2048', // Maksimal 2MB
+    public function tambah(Request $request) {
+        $request->validate([
+            'dokumen' => 'required|mimes:doc,docx,pdf,jpg,jpeg,png,xls,xlsx,ppt,pptx|max:2048', // Atur tipe file dan ukuran maksimum
         ]);
 
         if ($request->hasFile('dokumen')) {
-            // Ambil file dokumen
-            $dokumen = $request->file('dokumen');
+            // Buat nama file unik dengan waktu dan nama asli file
+            $fileName = $request->file('dokumen')->getClientOriginalName();
+            // Simpan file ke folder public/dokumen
+            $request->file('dokumen')->move(public_path('dokumen'), $fileName);
+        }
 
-            // Bersihkan nama sertifikat dari karakter yang tidak valid
-            $nama_sertif_bersih = preg_replace('/[^A-Za-z0-9\-]/', '_', $request->nama_sertif);
+        // Simpan data sertifikat ke database
+        $sertif = new Sertifikat();
+        $sertif->nama_sertif = $request->nama_sertif;
+        $sertif->no_sertif = $request->no_sertif;
+        $sertif->tgl_terbit = $request->tgl_terbit;
+        $sertif->tgl_kadaluwarsa = $request->tgl_kadaluwarsa;
+        $sertif->instansi = $request->instansi;
+        $sertif->jenis = $request->jenis;
+        $sertif->dokumen = 'dokumen/' . $fileName; // Simpan path file ke kolom dokumen
+        $sertif->save();
 
-            // Buat nama file dengan format nama_sertif + timestamp + ekstensi file
-            $nama_dokumen = $nama_sertif_bersih . '_' . date('Ymdhis') . '.' . $dokumen->getClientOriginalExtension();
+        return redirect()->route('main')->with('success', 'Sertifikat berhasil ditambahkan.');
+    }
 
-            // Pindahkan file ke folder dokumen di public/dokumen
-            $destinationPath = public_path('dokumen/');
-            if (!$dokumen->move($destinationPath, $nama_dokumen)) {
-                return back()->with('error', 'Upload file gagal');
+    public function hapus(Request $request) {
+        dd($request->all());
+        // $idsertif = $request->idsertif;
+        // $sertif = Sertifikat::where('idsertif', $idsertif)->first();
+        // $filePath = public_path($sertif->dokumen);
+
+        // // Hapus file dan data sertifikat
+        // if (File::exists($filePath)) {
+        //     File::delete($filePath);
+        // }
+
+        // // Hapus data sertifikat dari database
+        // $sertif->delete();
+
+        // return redirect()->route('main')->with('success', 'Sertifikat dan dokumen berhasil dihapus.');
+    }
+
+
+    public function edit(Request $request, $idsertif) {
+        // dd($request->all());
+        $request->validate([
+            'dokumen' => 'required|mimes:doc,docx,pdf,jpg,jpeg,png,xls,xlsx,ppt,pptx|max:2048',// Atur tipe file dan ukuran maksimum
+        ]);
+
+        // Cari sertifikat berdasarkan id
+        $sertif = Sertifikat::find($idsertif);
+
+        if ($sertif) {
+            // Hapus file lama jika ada
+            if (File::exists(public_path($sertif->dokumen))) {
+                File::delete(public_path($sertif->dokumen));
             }
-            $sertif = new Sertifikat();
+
+            // Buat nama file baru dengan ID sertifikat dan ekstensi yang sesuai
+            $fileExtension = $request->file('dokumen')->getClientOriginalName();
+            $fileName = $sertif->idsertif . '.' . $fileExtension;
+
+            // Upload file baru dan replace yang lama
+            $request->file('dokumen')->move(public_path('dokumen'), $fileName);
+
             $sertif->nama_sertif = $request->nama_sertif;
             $sertif->no_sertif = $request->no_sertif;
             $sertif->tgl_terbit = $request->tgl_terbit;
             $sertif->tgl_kadaluwarsa = $request->tgl_kadaluwarsa;
             $sertif->instansi = $request->instansi;
             $sertif->jenis = $request->jenis;
-            $sertif->dokumen = $nama_dokumen;
+            $sertif->dokumen = 'dokumen/' . $fileName;
             $sertif->save();
-
-            return redirect()->route('main')->with('success', 'Data sertifikat berhasil ditambahkan');
-        } else {
-            return back()->with('error', 'File dokumen tidak ditemukan');
         }
+
+        return redirect()->route('main')->with('success', 'Sertifikat berhasil diperbarui dengan dokumen baru.');
     }
 
-    public function hapus(Request $request){
-        $sertif = Sertifikat::where('idsertif', $request->idsertif);
-        $sertif->delete();
-        return redirect()->route('main');
-    }
-
-    public function edit(Request $request){
-    $this->validate($request, [
-        'nama_sertif' => 'required|string|max:255', // Validasi nama sertif
-        'dokumen' => 'required|mimes:doc,docx,pdf,xls,xlsx,ppt,pptx|max:2048', // Maksimal 2MB
-    ]);
-
-    // Cek apakah ada file yang diupload
-    if ($request->hasFile('dokumen')) {
-        // Ambil file dokumen
-        $dokumen = $request->file('dokumen');
-
-        // Bersihkan nama sertifikat dari karakter yang tidak valid
-        $nama_sertif_bersih = preg_replace('/[^A-Za-z0-9\-]/', '_', $request->nama_sertif);
-
-        // Buat nama file dengan format nama_sertif + timestamp + ekstensi file
-        $nama_dokumen = $nama_sertif_bersih . '_' . date('Ymdhis') . '.' . $dokumen->getClientOriginalExtension();
-
-        // Pindahkan file ke folder dokumen di public/dokumen
-        $destinationPath = public_path('dokumen/');
-        if (!$dokumen->move($destinationPath, $nama_dokumen)) {
-            return back()->with('error', 'Upload file gagal');
-        }
-    }
-    $sertif = Sertifikat::where($request->id_sertif);
-    $dataUpdate = [
-        'nama_sertif' => $request->nama_sertif,
-        'no_sertif' => $request->no_sertif,
-        'tgl_terbit' => $request->tgl_terbit,
-        'tgl_kadaluwarsa' => $request->tgl_kadaluwarsa,
-        'instansi' => $request->instansi,
-        'jenis' => $request->jenis,
-        'dokumen' => $nama_dokumen
-    ];
-    $sertif->update($dataUpdate);
-    return redirect()->route('main')->with('success', 'Data sertifikat berhasil diperbarui');
-}
 }

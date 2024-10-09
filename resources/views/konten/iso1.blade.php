@@ -68,23 +68,20 @@
                   <td>{{$sertif->tgl_kadaluwarsa}}</td>
                   <td>{{$sertif->instansi}}</td>
                   <td>{{$sertif->jenis}}</td>
-                  <td><a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="dokumen/{{$sertif->dokumen}}"  target="_blank"><i data-feather="download"></i></a></td>
+                  <td><a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ asset($sertif->dokumen) }}"  target="_blank"><i data-feather="download"></i></a></td>
                   <td>
                     <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="edit"
-                    data-id='{{ $sertif->id_sertif }}'
-                    data-nama='{{ $sertif->nama_sertif }}'
-                    data-no='{{ $sertif->no_sertif }}'
-                    data-terbit='{{ $sertif->tgl_terbit }}'
-                    data-kadaluwarsa='{{ $sertif->tgl_kadaluwarsa }}'
-                    data-instansi='{{ $sertif->instansi }}'
-                    data-jenis='{{ $sertif->jenis }}'
-                    data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                     <form action="{{ route('hapus-sertif') }}" method="POST">
-                        <input type="hidden" name="idsertif" value="{{$sertif->idsertif}}">
-                        @csrf
-                        <button type="submit" id="delete" class="btn btn-datatable btn-icon btn-transparent-dark" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i data-feather="trash-2"></i></button>
-                     </form>
-                  </td>
+                       data-id='{{ $sertif->idsertif }}'
+                       data-nama='{{ $sertif->nama_sertif }}'
+                       data-no='{{ $sertif->no_sertif }}'
+                       data-terbit='{{ $sertif->tgl_terbit }}'
+                       data-kadaluwarsa='{{ $sertif->tgl_kadaluwarsa }}'
+                       data-instansi='{{ $sertif->instansi }}'
+                       data-jenis='{{ $sertif->jenis }}'
+                       data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
+                    <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#hapusModal" id="hapus"
+                       data-idsertif='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
+                 </td>
                </tr>
                @endforeach
             </tbody>
@@ -100,9 +97,9 @@
                     </div>
                     <div class="modal-body">
 
-                            <form class="user" action="{{ url('edit-sertif/'.$sertif->id_sertif) }}" method="POST" enctype="multipart/form-data">
+                            <form class="user" action="{{ route('edit-sertif', $sertif->idsertif) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id_sertif" value="{{$sertif->id_sertif}}" id="id_sertif">
+                                <input type="hidden" name="idsertif" value="{{$sertif->idsertif}}" id="idsertif">
                                 <div class="mb-3">
                                    <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
                                    <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="{{$sertif->nama_sertif}}" />
@@ -126,17 +123,24 @@
                                 <div class="mb-3">
                                     <label class="small mb-1">Jenis Sertifikat</label>
                                     <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
-                                        <option disabled {{ $sertif->jenis == null ? 'selected' : '' }}>Pilih jenis sertifikat</option>
-                                        <option value="Sertifikat Umum" {{ $sertif->jenis == 'Sertifikat Umum' ? 'selected' : '' }}>Sertifikat Umum</option>
-                                        <option value="Sertifikat CSR" {{ $sertif->jenis == 'Sertifikat CSR' ? 'selected' : '' }}>Sertifikat CSR</option>
-                                        <option value="Penghargaan Umum" {{ $sertif->jenis == 'Penghargaan Umum' ? 'selected' : '' }}>Penghargaan Umum</option>
-                                        <option value="Sertifikat ISO 9001 : 2015" {{ $sertif->jenis == 'Sertifikat ISO 9001 : 2015' ? 'selected' : '' }}>Sertifikat ISO 9001 : 2015</option>
-                                        <option value="Sertifikat ISO 14001 : 2015" {{ $sertif->jenis == 'Sertifikat ISO 14001 : 2015' ? 'selected' : '' }}>Sertifikat ISO 14001 : 2015</option>
+                                    <option disabled {{ $sertif->jenis == null ? 'selected' : '' }}>Pilih jenis sertifikat</option>
+                                    <option value="Sertifikat CSR" {{ $sertif->jenis == 'Sertifikat CSR' ? 'selected' : '' }}>Sertifikat CSR</option>
+                                    <option value="Sertifikat HSE" {{ $sertif->jenis == 'Sertifikat HSE' ? 'selected' : '' }}>Sertifikat HSE</option>
+                                    <option value="Penghargaan" {{ $sertif->jenis == 'Penghargaan' ? 'selected' : '' }}>Penghargaan</option>
+                                    <option value="Proper" {{ $sertif->jenis == 'Proper' ? 'selected' : '' }}>Proper</option>
+                                    <option value="SNI Award" {{ $sertif->jenis == 'SNI Award' ? 'selected' : '' }}>SNI Award</option>
+                                    <option value="SWA" {{ $sertif->jenis == 'SWA' ? 'selected' : '' }}>SWA</option>
+                                    <option value="ISO 9001 : 2015" {{ $sertif->jenis == 'ISO 9001 : 2015' ? 'selected' : '' }}>ISO 9001 : 2015</option>
+                                    <option value="ISO 14001 : 2015" {{ $sertif->jenis == 'ISO 14001 : 2015' ? 'selected' : '' }}>ISO 14001 : 2015</option>
+                                    <option value="ISO 27001 : 2015" {{ $sertif->jenis == 'ISO 27001 : 2015' ? 'selected' : '' }}>ISO 27001 : 2015</option>
+                                    <option value="ISO 37001 : 2016" {{ $sertif->jenis == 'ISO 37001 : 2016' ? 'selected' : '' }}>ISO 37001 : 2016</option>
+                                    <option value="ISO 17025 : 2017" {{ $sertif->jenis == 'ISO 17025 : 2017' ? 'selected' : '' }}>ISO 17025 : 2017</option>
+                                    <option value="ISO 45001 : 2018" {{ $sertif->jenis == 'ISO 45001 : 2018' ? 'selected' : '' }}>ISO 45001 : 2018</option>
                                     </select>
-                                </div>
+                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="small mb-1">Masukan file</label>
-                                    <input class="form-control" name="dokumen" type="file" id="dokumen" >
+                                    <input class="form-control" name="dokumen" type="file" id="dokumen" value="{{$sertif->dokumen}}" >
                                  </div>
                                 <!-- Submit button-->
                                 <div class="d-flex justify-content-between">
@@ -150,8 +154,8 @@
                 </div>
             </div>
         </div>
-
          @endforeach
+
          {{-- Modal tambah data --}}
          <div class="modal fade" id="tambahData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -165,7 +169,7 @@
                         @csrf
                         <div class="mb-3">
                            <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
-                           <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="" />
+                           <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="" required />
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
@@ -173,7 +177,7 @@
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat</label>
-                           <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="" />
+                           <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="" required />
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsan Sertifikat</label>
@@ -181,22 +185,29 @@
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="instansi">Instansi Yang Mengeluarkan</label>
-                           <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" value="" />
+                           <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" value="" required />
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1">Jenis Sertifikat</label>
                            <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
                               <option selected="" disabled="">Pilih jenis sertifikat</option>
-                              <option value="Sertifikat Umum">Sertifikat Umum</option>
                               <option value="Sertifikat CSR">Sertifikat CSR</option>
-                              <option value="Penghargaan Umum">Penghargaan Umum</option>
-                              <option value="Sertifikat ISO 9001 : 2015">Sertifikat ISO 9001 : 2015</option>
-                              <option value="Sertifikat ISO 14001 : 2015">Sertifikat ISO 14001 : 2015</option>
+                              <option value="Sertifikat HSE">Sertifikat HSE</option>
+                              <option value="Penghargaan">Penghargaan</option>
+                              <option value=Proper">Proper</option>
+                              <option value="SNI Award">SNI Award</option>
+                              <option value="SWA">SWA</option>
+                              <option value="ISO 9001 : 2015">ISO 9001 : 2015</option>
+                              <option value="ISO 14001 : 2015">ISO 14001 : 2015</option>
+                              <option value="ISO 27001 : 2015">ISO 27001 : 2015</option>
+                              <option value="ISO 37001 : 2016">ISO 37001 : 2016</option>
+                              <option value="ISO 17025 : 2017">ISO 17025 : 2017</option>
+                              <option value="ISO 45001 : 2018">ISO 45001 : 2018</option>
                            </select>
                         </div>
                         <div class="mb-3">
                            <label for="formFile" class="small mb-1">Masukan file</label>
-                           <input class="form-control" name="dokumen" type="file" id="dokumen">
+                           <input class="form-control" name="dokumen" type="file" id="dokumen" required>
                         </div>
                         <!-- Submit button-->
                         <div class="d-flex justify-content-between">
@@ -211,6 +222,32 @@
                </div>
             </div>
          </div>
+
+         {{-- Modal hapus data --}}
+         @foreach ($data as $sertif )
+         <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Hapus Data User</h5>
+                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <p>Apakah yakin ingin menghapus data?</p>
+                     <form action="{{ route('hapus-sertif') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="idsertif" id="idsertif" value="{{ $sertif->idsertif }}">
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                  <button class="btn btn-danger" type="submit">Hapus</button>
+                  </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         @endforeach
       </div>
    </div>
 </div>
@@ -218,7 +255,12 @@
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script>
-          $(document).on('click', '#edit', function(e) {
+        $(document).on('click', '#hapus', function(e) {
+            var idsertif = $(this).attr("data-idsertif");
+            $('#idsertif').val(idsertif);
+        });
+
+        $(document).on('click', '#edit', function(e) {
             var id = $(this).attr("data-id");
             var nama = $(this).attr("data-nama");
             var no = $(this).attr("data-no");
@@ -227,7 +269,7 @@
             var instansi = $(this).attr('data-instansi');
             var jenis = $(this).attr('data-jenis');
             var dokumen = $(this).attr('data-dokumen');
-            $('#id_sertif').val(id);
+            $('#idsertif').val(id);
             $('#nama_sertif').val(nama);
             $('#no_sertif').val(no);
             $('#tgl_terbit').val(terbit);
@@ -235,7 +277,7 @@
             $('#instansi').val(instansi);
             $('#jenis').val(jenis);
             $('#dokumen').val(dokumen);
-    });
+        });
     </script>
 
 @endsection

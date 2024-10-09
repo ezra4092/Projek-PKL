@@ -9,6 +9,7 @@ class Sertifikat extends Model
 {
     public $table = 'sertifikat';
     public $timestamps = false;
+    protected $primaryKey = 'idsertif';
     protected $fillable = [
         'nama_sertif',
         'no_sertif',
