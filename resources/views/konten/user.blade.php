@@ -54,14 +54,13 @@
                   <td>{{$user->username}}</td>
                   <td>
                      <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="edit"
-                        data-id='{{ $user->id}}'
+                        data-id='{{ $user->id }}'
                         data-nama='{{ $user->nama }}'
                         data-username='{{ $user->username }}'
                         data-password='{{ $user->password }}'
                         data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                     <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark"
-                        data-bs-toggle="modal" data-bs-target="#hapusModal" id="hapus"
-                        data-id='{{ $user->id }}'><i class="fa-solid fa-trash"></i></button>
+                     <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" id="deleteUser"
+                     data-id='{{ $user->id }}' data-bs-toggle="modal" data-bs-target="#hapusModal"><i class="fa-solid fa-trash"></i></button>
                   </td>
                </tr>
                @endforeach
@@ -165,9 +164,9 @@
                   </div>
                   <div class="modal-body">
                      <p>Apakah yakin ingin menghapus data?</p>
-                     <form action="{{route('hapus-user',$user->id)}}" method="post">
+                     <form action="{{ route('hapus-user')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="id" id="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" id="iduser">
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
@@ -182,11 +181,12 @@
    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-   $(document).on('click', '#hapus', function(e) {
-       var id = $(this).attr("data-id");
-       $('#id').val(id);
-   });
+    $(document).on('click', '#deleteUser', function(e) {
+            var iduser = $(this).attr("data-id");
+            $('#iduser').val(iduser);
+        });
 
      $(document).on('click', '#edit', function(e) {
        var id = $(this).attr("data-id");

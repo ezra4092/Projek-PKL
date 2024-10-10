@@ -25,8 +25,9 @@ class UserController extends Controller
     }
 
     public function hapus(Request $request){
-        $user = User::find($request->id);
-        $user->delete();
+        // dd($request->all());
+        $akun = User::where('id', $request->id);
+        $akun->delete();
         return redirect()->route('user')->with(['delete' => true, 'message' => 'Akun Berhasil dihapus']);
     }
 

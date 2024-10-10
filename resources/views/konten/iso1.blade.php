@@ -79,15 +79,16 @@
                        data-instansi='{{ $sertif->instansi }}'
                        data-jenis='{{ $sertif->jenis }}'
                        data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                    <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#hapusModal" id="hapus"
-                       data-idsertif='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
+                       <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="delete"
+                       data-id='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
+
                  </td>
                </tr>
                @endforeach
             </tbody>
          </table>
+
          {{-- Modal edit data --}}
-         @foreach ($data as $sertif )
          <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -96,29 +97,28 @@
                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-
-                            <form class="user" action="{{ route('edit-sertif', $sertif->idsertif) }}" method="POST" enctype="multipart/form-data">
+                            <form class="user" action="{{ route('edit-sertif') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="idsertif" value="{{$sertif->idsertif}}" id="idsertif">
+                                <input type="hidden" name="idsertif" id="idsertif">
                                 <div class="mb-3">
                                    <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
-                                   <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="{{$sertif->nama_sertif}}" />
+                                   <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" />
                                 </div>
                                 <div class="mb-3">
                                    <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
-                                   <input class="form-control" id="no_sertif" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" value="{{$sertif->no_sertif}}" />
+                                   <input class="form-control" id="no_sertif" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" />
                                 </div>
                                 <div class="mb-3">
                                    <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat</label>
-                                   <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="{{$sertif->tgl_terbit}}" />
+                                   <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" />
                                 </div>
                                 <div class="mb-3">
                                    <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsan Sertifikat</label>
-                                   <input class="form-control" id="tgl_kadaluwarsa" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" value="{{$sertif->tgl_kadaluwarsa}}" />
+                                   <input class="form-control" id="tgl_kadaluwarsa" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat"  />
                                 </div>
                                 <div class="mb-3">
                                    <label class="small mb-1" for="instansi">Instansi Yang Mengeluarkan</label>
-                                   <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" value="{{$sertif->instansi}}" />
+                                   <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan"/>
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1">Jenis Sertifikat</label>
@@ -147,14 +147,11 @@
                                    <button class="btn btn-primary" type="submit">Edit Data</button>
                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
                                 </div>
-
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-         @endforeach
 
          {{-- Modal tambah data --}}
          <div class="modal fade" id="tambahData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -224,30 +221,27 @@
          </div>
 
          {{-- Modal hapus data --}}
-         @foreach ($data as $sertif )
-         <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Hapus Data User</h5>
-                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <p>Apakah yakin ingin menghapus data?</p>
-                     <form action="{{ route('hapus-sertif') }}" method="post">
-                        @csrf
-                        <input type="hidden" name="idsertif" id="idsertif" value="{{ $sertif->idsertif }}">
-                  </div>
-                  <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
-                  <button class="btn btn-danger" type="submit">Hapus</button>
-                  </div>
-                  </form>
-               </div>
+         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data Sertifikat</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah yakin ingin menghapus data?</p>
+                    <form action="{{route('hapus-sertif')}}" method="post">
+                       @csrf
+                       <input type="hidden" name="idsertif" id="idsertiff" >
+                 </div>
+                 <div class="modal-footer">
+                   <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                 <button class="btn btn-danger" type="submit">Hapus</button>
+                 </div>
+                 </form>
+              </div>
             </div>
-         </div>
-         @endforeach
+          </div>
       </div>
    </div>
 </div>
@@ -255,9 +249,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script>
-        $(document).on('click', '#hapus', function(e) {
-            var idsertif = $(this).attr("data-idsertif");
-            $('#idsertif').val(idsertif);
+        $(document).on('click', '#delete', function(e) {
+            var id = $(this).attr("data-id");
+            $('#idsertiff').val(id);
         });
 
         $(document).on('click', '#edit', function(e) {

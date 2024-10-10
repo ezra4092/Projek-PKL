@@ -16,13 +16,11 @@ class SertifikatController extends Controller
 
     public function tambah(Request $request) {
         $request->validate([
-            'dokumen' => 'required|mimes:doc,docx,pdf,jpg,jpeg,png,xls,xlsx,ppt,pptx|max:2048', // Atur tipe file dan ukuran maksimum
+            'dokumen' => 'required|mimes:doc,docx,pdf,jpg,jpeg,png,xls,xlsx,ppt,pptx|max:2048',
         ]);
 
         if ($request->hasFile('dokumen')) {
-            // Buat nama file unik dengan waktu dan nama asli file
             $fileName = $request->file('dokumen')->getClientOriginalName();
-            // Simpan file ke folder public/dokumen
             $request->file('dokumen')->move(public_path('dokumen'), $fileName);
         }
 
@@ -41,31 +39,31 @@ class SertifikatController extends Controller
     }
 
     public function hapus(Request $request) {
-        dd($request->all());
-        // $idsertif = $request->idsertif;
-        // $sertif = Sertifikat::where('idsertif', $idsertif)->first();
-        // $filePath = public_path($sertif->dokumen);
+        // dd($request->all());
+        $idsertif = $request->idsertif;
+        $sertif = Sertifikat::where('idsertif', $idsertif)->first();
+        $filePath = public_path($sertif->dokumen);
 
-        // // Hapus file dan data sertifikat
-        // if (File::exists($filePath)) {
-        //     File::delete($filePath);
-        // }
+        // Hapus file dan data sertifikat
+        if (File::exists($filePath)) {
+            File::delete($filePath);
+        }
 
-        // // Hapus data sertifikat dari database
-        // $sertif->delete();
+        // Hapus data sertifikat dari database
+        $sertif->delete();
 
-        // return redirect()->route('main')->with('success', 'Sertifikat dan dokumen berhasil dihapus.');
+        return redirect()->route('main')->with('success', 'Sertifikat dan dokumen berhasil dihapus.');
     }
 
 
-    public function edit(Request $request, $idsertif) {
-        // dd($request->all());
+    public function edit(Request $request) {
+        //dd($request->all());
         $request->validate([
             'dokumen' => 'required|mimes:doc,docx,pdf,jpg,jpeg,png,xls,xlsx,ppt,pptx|max:2048',// Atur tipe file dan ukuran maksimum
         ]);
 
-        // Cari sertifikat berdasarkan id
-        $sertif = Sertifikat::find($idsertif);
+        $idsertif = $request->idsertif;
+        $sertif = Sertifikat::where('idsertif', $idsertif)->first();
 
         if ($sertif) {
             // Hapus file lama jika ada

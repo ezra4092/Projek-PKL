@@ -25,7 +25,7 @@ Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 Route::get('/main', [SertifikatController::class, 'main'])->name('main');
 Route::post('/tambah-sertif', [SertifikatController::class, 'tambah'])->name('tambah-sertif');
 Route::post('/hapus-sertif', [SertifikatController::class, 'hapus'])->name('hapus-sertif');
-Route::post('/edit-sertif/{idsertif}', [SertifikatController::class, 'edit'])->name('edit-sertif');
+Route::post('/edit-sertif', [SertifikatController::class, 'edit'])->name('edit-sertif');
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/tambah-user', [UserController::class, 'tambah'])->name('tambah-user');
