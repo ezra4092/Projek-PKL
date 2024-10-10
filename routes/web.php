@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IsoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SertifController;
 use App\Http\Controllers\SertifikatController;
@@ -29,7 +30,11 @@ Route::post('/hapus-sertif', [SertifikatController::class, 'hapus'])->name('hapu
 Route::post('/edit-sertif', [SertifikatController::class, 'edit'])->name('edit-sertif');
 
 Route::get('/csr', [SertifController::class, 'csr'])->name('csr');
-Route::get('/csr2', [SertifController::class, 'csr2'])->name('csr2');
+Route::get('/hse', [SertifController::class, 'hse'])->name('hse');
+Route::get('/penghargaan', [SertifController::class, 'penghargaan'])->name('penghargaan');
+Route::get('/proper', [SertifController::class, 'proper'])->name('proper');
+
+Route::get('/iso1', [IsoController::class, 'iso1'])->name('iso1');
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/tambah-user', [UserController::class, 'tambah'])->name('tambah-user');

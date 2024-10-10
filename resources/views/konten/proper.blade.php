@@ -7,7 +7,7 @@
             <div class="col-auto mb-3">
                <h1 class="page-header-title">
                   <div class="page-header-icon"><i data-feather="user"></i></div>
-                  Daftar Sertifikat
+                  Daftar Sertifikat Proper
                </h1>
             </div>
             <div class="col-12 col-xl-auto mb-3">
@@ -15,7 +15,7 @@
                <i class="me-1" data-feather="users"></i>
                Manage Groups
                </a> --}}
-               <a class="btn btn-sm btn-light text-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambahModal">
+               <a class="btn btn-sm btn-light text-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambahData">
                <i class="me-1" data-feather="user-plus"></i>
                Tambah Data
                </a>
@@ -58,6 +58,7 @@
             </tfoot>
 
             <tbody>
+
                @php $no = 1; @endphp
                @foreach ($data as $sertif)
                <tr>
@@ -79,18 +80,16 @@
                        data-instansi='{{ $sertif->instansi }}'
                        data-jenis='{{ $sertif->jenis }}'
                        data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                       <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
+                       <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="delete"
                        data-id='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
-
                  </td>
                </tr>
                @endforeach
             </tbody>
          </table>
 
-
          {{-- Modal tambah data --}}
-         <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal fade" id="tambahModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                <div class="modal-content">
                   <div class="modal-header">
@@ -180,7 +179,7 @@
          </div>
 
           {{-- Modal edit data --}}
-         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -244,6 +243,7 @@
             </div>
         </div>
 
+          </div>
       </div>
    </div>
 </div>

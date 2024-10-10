@@ -3,18 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sertifikat;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 
 class SertifController extends Controller
 {
     public function csr(){
-        $csr = Sertifikat::where('jenis', 'Sertifikat CSR');
-        return view('konten.csr', compact('csr'));
+        return view('konten.csr',[
+            'data' => Sertifikat::where('jenis', 'Sertifikat CSR')->get(),
+            'title' => 'Sertifikat'
+        ]);
     }
 
-    public function csr2(){
-        return view('konten.csr',[
-            'data' => Sertifikat::where('jenis', 'Sertifikat CSR'),
+    public function hse(){
+        return view('konten.hse',[
+            'data' => Sertifikat::where('jenis', 'Sertifikat HSE')->get(),
+            'title' => 'Sertifikat'
+        ]);
+    }
+
+    public function penghargaan(){
+        return view('konten.penghargaan',[
+            'data' => Sertifikat::where('jenis', 'Penghargaan')->get(),
+            'title' => 'Sertifikat'
+        ]);
+    }
+
+    public function proper(){
+        return view('konten.hse',[
+            'data' => Sertifikat::where('jenis', 'Proper')->get(),
             'title' => 'Sertifikat'
         ]);
     }

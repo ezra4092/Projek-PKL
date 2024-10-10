@@ -7,7 +7,7 @@
             <div class="col-auto mb-3">
                <h1 class="page-header-title">
                   <div class="page-header-icon"><i data-feather="user"></i></div>
-                  Daftar Sertifikat
+                  Daftar Sertifikat CSR
                </h1>
             </div>
             <div class="col-12 col-xl-auto mb-3">
@@ -15,7 +15,7 @@
                <i class="me-1" data-feather="users"></i>
                Manage Groups
                </a> --}}
-               <a class="btn btn-sm btn-light text-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambahData">
+               <a class="btn btn-sm btn-light text-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambahModal">
                <i class="me-1" data-feather="user-plus"></i>
                Tambah Data
                </a>
@@ -79,7 +79,7 @@
                        data-instansi='{{ $sertif->instansi }}'
                        data-jenis='{{ $sertif->jenis }}'
                        data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                       <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="delete"
+                       <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
                        data-id='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
 
                  </td>
@@ -88,8 +88,99 @@
             </tbody>
          </table>
 
-         {{-- Modal edit data --}}
-         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+         {{-- Modal tambah data --}}
+         <div class="modal fade" id="tambahModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Tambah Data Sertifikat</h5>
+                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <form class="user" action="{{ route('tambah-sertif') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                           <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
+                           <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="" required />
+                        </div>
+                        <div class="mb-3">
+                           <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
+                           <input class="form-control" id="no_sertif" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" value="" />
+                        </div>
+                        <div class="mb-3">
+                           <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat</label>
+                           <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="" required />
+                        </div>
+                        <div class="mb-3">
+                           <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsan Sertifikat</label>
+                           <input class="form-control" id="tgl_kadaluwarsa" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" value="" />
+                        </div>
+                        <div class="mb-3">
+                           <label class="small mb-1" for="instansi">Instansi Yang Mengeluarkan</label>
+                           <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" value="" required />
+                        </div>
+                        <div class="mb-3">
+                           <label class="small mb-1">Jenis Sertifikat</label>
+                           <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
+                              <option selected="" disabled="">Pilih jenis sertifikat</option>
+                              <option value="Sertifikat CSR">Sertifikat CSR</option>
+                              <option value="Sertifikat HSE">Sertifikat HSE</option>
+                              <option value="Penghargaan">Penghargaan</option>
+                              <option value="Proper">Proper</option>
+                              <option value="SNI Award">SNI Award</option>
+                              <option value="SWA">SWA</option>
+                              <option value="ISO 9001 : 2015">ISO 9001 : 2015</option>
+                              <option value="ISO 14001 : 2015">ISO 14001 : 2015</option>
+                              <option value="ISO 27001 : 2015">ISO 27001 : 2015</option>
+                              <option value="ISO 37001 : 2016">ISO 37001 : 2016</option>
+                              <option value="ISO 17025 : 2017">ISO 17025 : 2017</option>
+                              <option value="ISO 45001 : 2018">ISO 45001 : 2018</option>
+                           </select>
+                        </div>
+                        <div class="mb-3">
+                           <label for="formFile" class="small mb-1">Masukan file</label>
+                           <input class="form-control" name="dokumen" type="file" id="dokumen" required>
+                        </div>
+                        <!-- Submit button-->
+                        <div class="d-flex justify-content-between">
+                           <button class="btn btn-primary" type="submit">Tambah Data</button>
+                           <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                     </form>
+                  </div>
+                  {{--
+                  <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div>
+                  --}}
+               </div>
+            </div>
+         </div>
+
+         {{-- Modal hapus data --}}
+         <div class="modal fade" id="hapusModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data Sertifikat</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <p>Apakah yakin ingin menghapus data?</p>
+                     <form action="{{route('hapus-sertif')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="idsertif" id="idsertiff" >
+                  </div>
+                  <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                  <button class="btn btn-danger" type="submit">Hapus</button>
+                  </div>
+                  </form>
+               </div>
+            </div>
+         </div> 
+
+          {{-- Modal edit data --}}
+         <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -153,95 +244,6 @@
             </div>
         </div>
 
-         {{-- Modal tambah data --}}
-         <div class="modal fade" id="tambahData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Tambah Data Sertifikat</h5>
-                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="user" action="{{ route('tambah-sertif') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="mb-3">
-                           <label class="small mb-1" for="nama_sertif">Nama Sertifikat</label>
-                           <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="" required />
-                        </div>
-                        <div class="mb-3">
-                           <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
-                           <input class="form-control" id="no_sertif" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" value="" />
-                        </div>
-                        <div class="mb-3">
-                           <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat</label>
-                           <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="" required />
-                        </div>
-                        <div class="mb-3">
-                           <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsan Sertifikat</label>
-                           <input class="form-control" id="tgl_kadaluwarsa" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" value="" />
-                        </div>
-                        <div class="mb-3">
-                           <label class="small mb-1" for="instansi">Instansi Yang Mengeluarkan</label>
-                           <input class="form-control" id="instansi" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" value="" required />
-                        </div>
-                        <div class="mb-3">
-                           <label class="small mb-1">Jenis Sertifikat</label>
-                           <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
-                              <option selected="" disabled="">Pilih jenis sertifikat</option>
-                              <option value="Sertifikat CSR">Sertifikat CSR</option>
-                              <option value="Sertifikat HSE">Sertifikat HSE</option>
-                              <option value="Penghargaan">Penghargaan</option>
-                              <option value=Proper">Proper</option>
-                              <option value="SNI Award">SNI Award</option>
-                              <option value="SWA">SWA</option>
-                              <option value="ISO 9001 : 2015">ISO 9001 : 2015</option>
-                              <option value="ISO 14001 : 2015">ISO 14001 : 2015</option>
-                              <option value="ISO 27001 : 2015">ISO 27001 : 2015</option>
-                              <option value="ISO 37001 : 2016">ISO 37001 : 2016</option>
-                              <option value="ISO 17025 : 2017">ISO 17025 : 2017</option>
-                              <option value="ISO 45001 : 2018">ISO 45001 : 2018</option>
-                           </select>
-                        </div>
-                        <div class="mb-3">
-                           <label for="formFile" class="small mb-1">Masukan file</label>
-                           <input class="form-control" name="dokumen" type="file" id="dokumen" required>
-                        </div>
-                        <!-- Submit button-->
-                        <div class="d-flex justify-content-between">
-                           <button class="btn btn-primary" type="submit">Tambah Data</button>
-                           <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
-                        </div>
-                     </form>
-                  </div>
-                  {{--
-                  <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div>
-                  --}}
-               </div>
-            </div>
-         </div>
-
-         {{-- Modal hapus data --}}
-         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data Sertifikat</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Apakah yakin ingin menghapus data?</p>
-                    <form action="{{route('hapus-sertif')}}" method="post">
-                       @csrf
-                       <input type="hidden" name="idsertif" id="idsertiff" >
-                 </div>
-                 <div class="modal-footer">
-                   <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
-                 <button class="btn btn-danger" type="submit">Hapus</button>
-                 </div>
-                 </form>
-              </div>
-            </div>
-          </div>
       </div>
    </div>
 </div>

@@ -7,7 +7,7 @@
             <div class="col-auto mb-3">
                <h1 class="page-header-title">
                   <div class="page-header-icon"><i data-feather="user"></i></div>
-                  Daftar Sertifikat
+                  Daftar Sertifikat HSE
                </h1>
             </div>
             <div class="col-12 col-xl-auto mb-3">
@@ -90,7 +90,7 @@
 
 
          {{-- Modal tambah data --}}
-         <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal fade" id="tambahModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                <div class="modal-content">
                   <div class="modal-header">
@@ -180,7 +180,7 @@
          </div>
 
           {{-- Modal edit data --}}
-         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
