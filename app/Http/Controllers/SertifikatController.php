@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SertifikatController extends Controller
 {
     public function main(){
-        return view('konten.iso1',[
+        return view('konten.dashboard2',[
             'data' => Sertifikat::all(),
             'title' => 'Sertifikat'
         ]);

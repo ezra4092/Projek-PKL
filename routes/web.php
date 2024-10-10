@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SertifController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -26,6 +27,9 @@ Route::get('/main', [SertifikatController::class, 'main'])->name('main');
 Route::post('/tambah-sertif', [SertifikatController::class, 'tambah'])->name('tambah-sertif');
 Route::post('/hapus-sertif', [SertifikatController::class, 'hapus'])->name('hapus-sertif');
 Route::post('/edit-sertif', [SertifikatController::class, 'edit'])->name('edit-sertif');
+
+Route::get('/csr', [SertifController::class, 'csr'])->name('csr');
+Route::get('/csr2', [SertifController::class, 'csr2'])->name('csr2');
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/tambah-user', [UserController::class, 'tambah'])->name('tambah-user');

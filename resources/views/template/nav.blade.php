@@ -34,7 +34,7 @@
 </a>
 <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
-      <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseAccount">
+      <a class="nav-link collapsed" href="csr2" aria-controls="pagesCollapseAccount">
          Sertifikat CSR
          <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
       </a>
