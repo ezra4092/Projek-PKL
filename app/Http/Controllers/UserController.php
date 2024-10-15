@@ -20,6 +20,7 @@ class UserController extends Controller
         $user->nama = $request->nama;
         $user->username = $request->username;
         $user->password =  Hash::make($request->password);
+        $user->privilages = $request->privilages;
         $user->save();
         return redirect()->route('user')->with(['tambah' => true, 'message' => 'Akun Berhasil ditambah']);
     }
@@ -35,14 +36,21 @@ class UserController extends Controller
         // dd($request->all());
         $akun = User::find($request->id);
         if ($request->password == null){
+            if($request->privilages != null){
+                $akun->nama = $request->nama;
+                $akun->username = $request->username;
+                $akun->privilages = $request->privilages;
+                $akun->save();
+            } else {
                 $akun->nama = $request->nama;
                 $akun->username = $request->username;
                 $akun->save();
             }
-        else {
+        } else {
             $akun->nama = $request->nama;
             $akun->username = $request->username;
-            $akun->password = Hash::make($request->password);
+            $akun->privilages = $request->privilages;
+            $akun->password = $request->password;
             $akun->save();
         }
         return redirect()->route('user')->with(['edit' => true, 'message' => 'Akun Berhasil diedit']);

@@ -22,14 +22,14 @@
           --}}
        </div>
           <div class="sidenav-menu-heading"></div>
-          <a class="nav-link collapsed" href="main" aria-controls="collapseDashboards">
+          <a class="nav-link collapsed" href="dashboard" aria-controls="collapseDashboards">
              <div class="nav-link-icon"><i data-feather="activity"></i></div>
              Dashboards
              <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
           </a>
           <div class="sidenav-menu-heading">Sertifikat</div>
           <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-             <div class="nav-link-icon"><i data-feather="grid"></i></div>
+             <div class="nav-link-icon"><i data-feather="folder"></i></div>
              Sertifikat Umum
              <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
           </a>
@@ -51,11 +51,11 @@
                    Proper
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseError">
+                <a class="nav-link collapsed" href="swa" aria-controls="pagesCollapseError">
                    SWA
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="pagesCollapseError">
+                <a class="nav-link collapsed" href="sni_award" aria-controls="pagesCollapseError">
                    SNI Award
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -72,23 +72,23 @@
                    ISO 9001 : 2015
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapseUserManagement">
+                <a class="nav-link collapsed" href="iso2" aria-controls="appsCollapseUserManagement">
                    ISO 14001 : 2015
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
+                <a class="nav-link collapsed" href="iso3" aria-controls="appsCollapsePostsManagement">
                    ISO 27001 : 2015
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
+                <a class="nav-link collapsed" href="iso4" aria-controls="appsCollapsePostsManagement">
                    ISO 37001 : 2016
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
+                <a class="nav-link collapsed" href="iso5" aria-controls="appsCollapsePostsManagement">
                    ISO 17025 : 2017
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="javascript:void(0);" aria-controls="appsCollapsePostsManagement">
+                <a class="nav-link collapsed" href="iso6" aria-controls="appsCollapsePostsManagement">
                    ISO 45001 : 2018
                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -105,7 +105,7 @@
     <div class="sidenav-footer">
        <div class="sidenav-footer-content">
           <div class="sidenav-footer-subtitle">Logged in as:</div>
-          <div class="sidenav-footer-title">ezra</div>
+          <div class="sidenav-footer-title">{{Auth::user()->nama}}</div>
        </div>
     </div>
  </nav>

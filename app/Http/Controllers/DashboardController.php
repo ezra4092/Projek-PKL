@@ -9,7 +9,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        return view('konten.dashboard',[
+            'data' => Sertifikat::all(),
+            'title' => 'Sertifikat'
+        ]);
     }
 
 

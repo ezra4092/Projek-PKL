@@ -7,7 +7,7 @@
             <div class="col-auto mb-3">
                <h1 class="page-header-title">
                   <div class="page-header-icon"><i data-feather="folder"></i></div>
-                  Daftar Sertifikat
+                  Daftar Sertifikat ISO 14001 : 2015
                </h1>
             </div>
             <div class="col-12 col-xl-auto mb-3">
@@ -41,7 +41,7 @@
             $('#idsertiff').val(id);
         });
 
-        $(document).on('click', '#edit', function(e) {
+        $(document).on('click', '#update', function(e) {
             var id = $(this).attr("data-id");
             var nama = $(this).attr("data-nama");
             var no = $(this).attr("data-no");

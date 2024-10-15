@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('username', 50)->unique();
             $table->string('password', 255);
             $table->string('nama', 50);
+            $table->enum('privilages', ['Full-access', 'Half-access', 'No-access']);
         });
     }
 

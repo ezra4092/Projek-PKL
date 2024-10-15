@@ -26,7 +26,7 @@
                 <div class="icon-stack bg-primary-soft text-primary me-4"><i data-feather="book"></i></div>
                 <div>
                     <div class="small text-gray-500">Documentation</div>
-                    Usage instructions and reference
+                    Cara menambahkan data sertifikat
                 </div>
             </a>
             <div class="dropdown-divider m-0"></div>
@@ -155,7 +155,7 @@
             <h6 class="dropdown-header d-flex align-items-center">
                 <img class="dropdown-user-img" src="assets/img/illustrations/profiles/profile-1.png" />
                 <div class="dropdown-user-details">
-                    <div class="dropdown-user-details-name">Valerie Luna</div>
+                    <div class="dropdown-user-details-name">{{Auth::user()->nama}}</div>
                     <div class="dropdown-user-details-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9debf1e8f3fcddfcf2f1b3fef2f0">[email&#160;protected]</a></div>
                 </div>
             </h6>
@@ -164,7 +164,7 @@
                 <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                 Account
             </a>
-            <a class="dropdown-item" href="#!">
+            <a class="dropdown-item" href="logout">
                 <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                 Logout
             </a>

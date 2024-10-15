@@ -34,6 +34,8 @@
                   <th width="2%">No.</th>
                   <th>Nama</th>
                   <th>Username</th>
+                  <th>Password</th>
+                  <th>Privilages</th>
                   <th>Aksi</th>
                </tr>
             </thead>
@@ -42,6 +44,8 @@
                   <th width="2%">No.</th>
                   <th>Nama</th>
                   <th>Username</th>
+                  <th>Password</th>
+                  <th>Privilages</th>
                   <th>Aksi</th>
                </tr>
             </tfoot>
@@ -52,14 +56,18 @@
                   <td width="2%">{{$no++}}</td>
                   <td>{{$user->nama}}</td>
                   <td>{{$user->username}}</td>
+                  <td>{{ str_repeat('*', 8) }}</td>
+                  <td>{{$user->privilages}}</td>
                   <td>
-                     <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="edit"
+                     <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="update"
                         data-id='{{ $user->id}}'
                         data-nama='{{ $user->nama }}'
                         data-username='{{ $user->username }}'
-                        data-password='{{ $user->password }}'data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
+                        data-password='{{ $user->password }}'
+                        data-privilages='{{ $user->privilages}}'
+                        data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
                      <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark"
-                        data-bs-toggle="modal" data-bs-target="#hapusModal" id="hapus"
+                        data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
                         data-id='{{ $user->id }}'><i class="fa-solid fa-trash"></i></button>
                   </td>
                </tr>
@@ -79,17 +87,26 @@
                      <form class="user" action="{{ route('tambah-user') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                           <label class="small mb-1" for="nama">Nama</label>
-                           <input class="form-control" id="nama" name="nama" type="text" placeholder="Masukkan nama" value="" />
+                           <label class="small mb-1" for="nama">Nama <span style="color:red; font-size:18px">*</span></label>
+                           <input class="form-control" id="nama" name="nama" type="text" placeholder="Masukkan nama" required />
                         </div>
                         <div class="mb-3">
-                           <label class="small mb-1" for="username">Username</label>
-                           <input class="form-control" id="username" name="username" type="text" placeholder="Masukkan username" value="" />
+                           <label class="small mb-1" for="username">Username <span style="color:red; font-size:18px">*</span></label>
+                           <input class="form-control" id="username" name="username" type="text" placeholder="Masukkan username" required />
                         </div>
                         <div class="mb-3">
-                           <label class="small mb-1" for="password">Password</label>
-                           <input class="form-control" id="password" name="password" type="password" placeholder="Masukkan password" value="" />
+                           <label class="small mb-1" for="password">Password <span style="color:red; font-size:18px">*</span></label>
+                           <input class="form-control" id="password" name="password" type="password" placeholder="Masukkan password" required />
                         </div>
+                        <div class="mb-3">
+                            <label class="small mb-1">Hak Akses <span style="color:red; font-size:18px">*</span></label>
+                            <select class="form-select" aria-label="Default select example" id="privilages" name="privilages" required>
+                               <option selected="" disabled="">Pilih jenis hak akses</option>
+                               <option value="Full-access">Full-access</option>
+                               <option value="Half-access">Half-access</option>
+                               <option value="No-access">No-access</option>
+                            </select>
+                         </div>
                         <!-- Submit button-->
                         <div class="d-flex justify-content-between">
                            <button class="btn btn-primary" type="submit">Tambah Data</button>
@@ -140,16 +157,28 @@
                         @csrf
                         <input type="hidden" name="id" id="ide">
                         <div class="mb-3">
-                           <label class="small mb-1" for="nama">Nama</label>
-                           <input class="form-control" id="nama" name="nama" type="text" placeholder="Masukkan nama"  />
+                           <label class="small mb-1" for="nama">Nama <span style="color:red; font-size:18px">*</span></label>
+                           <input class="form-control" id="namae" name="nama" type="text" placeholder="Masukkan nama"  />
                         </div>
                         <div class="mb-3">
-                           <label class="small mb-1" for="username">Username</label>
-                           <input class="form-control" id="username" name="username" type="text" placeholder="Masukkan username" />
+                           <label class="small mb-1" for="username">Username <span style="color:red; font-size:18px">*</span></label>
+                           <input class="form-control" id="usne" name="username" type="text" placeholder="Masukkan username" />
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="small mc-1">Password <span style="color:red; font-size:18px">*</span></label>
+                            <input class="form-control" type="password" name="pwe">
+                            <div style="color:red; font-size:10px">
+                                *tidak perlu diisi jika tidak diganti
+                            </div>
                         </div>
                         <div class="mb-3">
-                           <label class="small mb-1" for="password">Password</label>
-                           <input class="form-control" id="password" name="password" type="password" placeholder="Masukkan password"/>
+                            <label class="small mb-1">Hak Akses <span style="color:red; font-size:18px">*</span></label>
+                            <select class="form-select" aria-label="Default select example" id="akses" name="privilages" required>
+                                <option disabled {{ isset($user) && $user->jenis == null ? 'selected' : '' }}>Pilih jenis hak akses</option>
+                                <option value="Full-access" {{ isset($user) && $user->jenis == 'Full-access' ? 'selected' : '' }}>Full-access</option>
+                                <option value="Half-access" {{ isset($user) && $user->jenis == 'Half-access' ? 'selected' : '' }}>Half-access</option>
+                                <option value="No-access" {{ isset($user) && $user->jenis == 'No-access' ? 'selected' : '' }}>No-access</option>
+                            </select>
                         </div>
                         <!-- Submit button-->
                         <div class="d-flex justify-content-between">
@@ -167,20 +196,43 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
-   $(document).on('click', '#hapus', function(e) {
+   $(document).on('click', '#delete', function(e) {
        var id = $(this).attr("data-id");
        $('#id').val(id);
    });
 
-     $(document).on('click', '#edit', function(e) {
+     $(document).on('click', '#update', function(e) {
        var id = $(this).attr("data-id");
        var nama = $(this).attr("data-nama");
        var username = $(this).attr("data-username");
        var password = $(this).attr("data-password");
+       var privilages = $(this).attr("data-privilages");
        $('#ide').val(id);
-       $('#nama').val(nama);
-       $('#username').val(username);
+       $('#namae').val(nama);
+       $('#usne').val(username);
+       $('#akses').val(privilages);
     });
     </script>
+
+@if (session('tambah') || session('delete') || session('edit'))
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'success',
+        title: '{{ session('message') }}'
+    })
+</script>
+@endif
 
 @endsection

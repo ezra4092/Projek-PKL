@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class SertifikatController extends Controller
 {
-    public function main(){
-        return view('konten.dashboard2',[
+    public function index(){
+        return view('konten.dashboard',[
             'data' => Sertifikat::all(),
             'title' => 'Sertifikat'
         ]);
@@ -35,7 +35,7 @@ class SertifikatController extends Controller
         $sertif->dokumen = 'dokumen/' . $fileName; // Simpan path file ke kolom dokumen
         $sertif->save();
 
-        return redirect()->route('main')->with('success', 'Sertifikat berhasil ditambahkan.');
+        return redirect()->route('dashboard')->with('success', 'Sertifikat berhasil ditambahkan.');
     }
 
     public function hapus(Request $request) {
@@ -52,7 +52,7 @@ class SertifikatController extends Controller
         // Hapus data sertifikat dari database
         $sertif->delete();
 
-        return redirect()->route('main')->with('success', 'Sertifikat dan dokumen berhasil dihapus.');
+        return redirect()->route('dashboard')->with('success', 'Sertifikat dan dokumen berhasil dihapus.');
     }
 
 
@@ -66,7 +66,6 @@ class SertifikatController extends Controller
         $sertif = Sertifikat::where('idsertif', $idsertif)->first();
 
         if ($sertif) {
-            // Hapus file lama jika ada
             if (File::exists(public_path($sertif->dokumen))) {
                 File::delete(public_path($sertif->dokumen));
             }
@@ -88,7 +87,7 @@ class SertifikatController extends Controller
             $sertif->save();
         }
 
-        return redirect()->route('main')->with('success', 'Sertifikat berhasil diperbarui dengan dokumen baru.');
+        return redirect()->route('dashboard')->with('success', 'Sertifikat berhasil diperbarui dengan dokumen baru.');
     }
 
 }
