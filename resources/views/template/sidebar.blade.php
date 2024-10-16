@@ -1,4 +1,4 @@
-<nav class="sidenav shadow-right sidenav-light">
+<nav class="sidenav shadow-right sidenav-light" style="background-color:  #e8f1ff">
     <div class="sidenav-menu">
        <div class="nav accordion" id="accordionSidenav">
         <div>

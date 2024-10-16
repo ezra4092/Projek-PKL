@@ -48,7 +48,7 @@ class IsoController extends Controller
     }
 
     public function iso6() {
-        $sertif = Sertifikat::where('jenis', 'ISO 45001:2018')->get();
+        $sertif = Sertifikat::where('jenis', 'ISO 45001 : 2018')->get();
         return view('iso.iso6', [
             'data' => $sertif,
             'title' => 'Sertifikat'

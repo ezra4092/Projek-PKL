@@ -7,12 +7,6 @@ use Illuminate\Http\Request;
 
 class SertifikatController extends Controller
 {
-    public function index(){
-        return view('konten.dashboard',[
-            'data' => Sertifikat::all(),
-            'title' => 'Sertifikat'
-        ]);
-    }
 
     public function tambah(Request $request) {
         $request->validate([
@@ -35,7 +29,34 @@ class SertifikatController extends Controller
         $sertif->dokumen = 'dokumen/' . $fileName; // Simpan path file ke kolom dokumen
         $sertif->save();
 
-        return redirect()->route('dashboard')->with('success', 'Sertifikat berhasil ditambahkan.');
+        switch ($sertif->jenis) {
+            case 'Sertifikat CSR':
+                return redirect()->route('csr')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'Sertifkat HSE':
+                return redirect()->route('hse')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'Penghargaan':
+                return redirect()->route('penghargaan')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'Proper':
+                return redirect()->route('proper')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'SWA':
+                return redirect()->route('swa')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'SNI Award':
+                return redirect()->route('sni_award')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'ISO 9001 : 2015':
+                return redirect()->route('iso1')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'ISO 14001 : 2015':
+                return redirect()->route('iso2')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'ISO 27001 : 2015':
+                return redirect()->route('iso3')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'ISO 37001 : 2016':
+                return redirect()->route('iso4')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'ISO 17025 : 2017':
+                return redirect()->route('iso5')->with('success', 'Sertifikat berhasil ditambahkan.');
+            case 'ISO 45001:2018':
+                return redirect()->route('iso6')->with('success', 'Sertifikat berhasil ditambahkan.');
+            default:
+                return redirect()->route('dashboard')->with('success', 'Sertifikat berhasil ditambahkan.');
+        }
     }
 
     public function hapus(Request $request) {
@@ -52,7 +73,34 @@ class SertifikatController extends Controller
         // Hapus data sertifikat dari database
         $sertif->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Sertifikat dan dokumen berhasil dihapus.');
+        switch ($sertif->jenis) {
+            case 'Sertifikat CSR':
+                return redirect()->route('csr')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'Sertifkat HSE':
+                return redirect()->route('hse')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'Penghargaan':
+                return redirect()->route('penghargaan')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'Proper':
+                return redirect()->route('proper')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'SWA':
+                return redirect()->route('swa')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'SNI Award':
+                return redirect()->route('sni_award')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'ISO 9001 : 2015':
+                return redirect()->route('iso1')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'ISO 14001 : 2015':
+                return redirect()->route('iso2')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'ISO 27001 : 2015':
+                return redirect()->route('iso3')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'ISO 37001 : 2016':
+                return redirect()->route('iso4')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'ISO 17025 : 2017':
+                return redirect()->route('iso5')->with('success', 'Sertifikat berhasil dihapus.');
+            case 'ISO 45001:2018':
+                return redirect()->route('iso6')->with('success', 'Sertifikat berhasil dihapus.');
+            default:
+                return redirect()->route('dashboard')->with('success', 'Sertifikat berhasil dihapus.');
+        }
     }
 
 
@@ -87,7 +135,34 @@ class SertifikatController extends Controller
             $sertif->save();
         }
 
-        return redirect()->route('dashboard')->with('success', 'Sertifikat berhasil diperbarui dengan dokumen baru.');
+        switch ($sertif->jenis) {
+            case 'Sertifikat CSR':
+                return redirect()->route('csr')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'Sertifkat HSE':
+                return redirect()->route('hse')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'Penghargaan':
+                return redirect()->route('penghargaan')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'Proper':
+                return redirect()->route('proper')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'SWA':
+                return redirect()->route('swa')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'SNI Award':
+                return redirect()->route('sni_award')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'ISO 9001 : 2015':
+                return redirect()->route('iso1')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'ISO 14001 : 2015':
+                return redirect()->route('iso2')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'ISO 27001 : 2015':
+                return redirect()->route('iso3')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'ISO 37001 : 2016':
+                return redirect()->route('iso4')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'ISO 17025 : 2017':
+                return redirect()->route('iso5')->with('success', 'Sertifikat berhasil diperbarui.');
+            case 'ISO 45001:2018':
+                return redirect()->route('iso6')->with('success', 'Sertifikat berhasil diperbarui.');
+            default:
+                return redirect()->route('dashboard')->with('success', 'Sertifikat berhasil diperbarui.');
+        }
     }
 
 }

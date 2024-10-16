@@ -26,7 +26,7 @@ Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/dashboard', [SertifikatController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/tambah-sertif', [SertifikatController::class, 'tambah'])->name('tambah-sertif');
     Route::post('/hapus-sertif', [SertifikatController::class, 'hapus'])->name('hapus-sertif');
     Route::post('/edit-sertif', [SertifikatController::class, 'edit'])->name('edit-sertif');

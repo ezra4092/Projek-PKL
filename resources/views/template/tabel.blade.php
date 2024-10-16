@@ -1,11 +1,11 @@
-<table id="datatablesSimple">
+<table id="datatablesSimple" class="table table-striped">
     <thead>
         <tr>
            <th width="2%">No.</th>
            <th>Nama Sertifikat</th>
            <th>Nomor Sertifikat</th>
            <th>Tanggal Terbit</th>
-           <th>Tanggal Kadaluwarsa</th>
+           <th>Tanggal Kedaluwarsa</th>
            <th>Instansi Yang Mengeluarkan</th>
            <th>Jenis</th>
            <th>Dokumen</th>
@@ -15,13 +15,13 @@
         </tr>
      </thead>
 
-     <tfoot>
+     {{-- <tfoot>
         <tr>
          <th width="2%">No.</th>
          <th>Nama Sertifikat</th>
          <th>Nomor Sertifikat</th>
          <th>Tanggal Terbit</th>
-         <th>Tanggal Kadaluwarsa</th>
+         <th>Tanggal Kedaluwarsa</th>
          <th>Instansi Yang Mengeluarkan</th>
          <th>Jenis</th>
          <th>Dokumen</th>
@@ -29,7 +29,7 @@
            <th>Aksi</th>
          @endif
         </tr>
-     </tfoot>
+     </tfoot> --}}
 
      <tbody>
         @php $no = 1; @endphp
@@ -88,7 +88,7 @@
                    <input class="form-control" id="tgl_terbit" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" value="" required />
                 </div>
                 <div class="mb-3">
-                   <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsa Sertifikat</label>
+                   <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kedaluwarsa Sertifikat</label>
                    <input class="form-control" id="tgl_kadaluwarsa" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" value="" />
                 </div>
                 <div class="mb-3">
@@ -117,16 +117,13 @@
                    <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
                    <input class="form-control" name="dokumen" type="file" id="dokumen" required>
                 </div>
-                <!-- Submit button-->
-                <div class="d-flex justify-content-between">
-                   <button class="btn btn-primary" type="submit">Tambah Data</button>
-                   <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
-                </div>
+               <!-- Submit button-->
+               <div class="d-flex justify-content-between">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                <button class="btn btn-primary" type="submit">Tambah Data</button>
+            </div>
              </form>
           </div>
-          {{--
-          <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div>
-          --}}
        </div>
     </div>
  </div>
@@ -140,12 +137,12 @@
              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-             <p>Apakah yakin ingin menghapus data?</p>
+             <p class="mt-3">Apakah yakin ingin menghapus data?</p>
              <form action="{{route('hapus-sertif')}}" method="post">
                 @csrf
                 <input type="hidden" name="idsertif" id="idsertiff" >
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer justify-content-between">
           <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
           <button class="btn btn-danger" type="submit">Hapus</button>
           </div>
@@ -166,26 +163,26 @@
             <div class="modal-body">
                     <form class="user" action="{{ route('edit-sertif') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="idsertif" id="ids">
+                        <input type="hidden" name="idsertif" id="id">
                         <div class="mb-3">
                            <label class="small mb-1" for="nama_sertif">Nama Sertifikat <span style="color:red; font-size:18px">*</span></label>
-                           <input class="form-control" id="namas" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" required />
+                           <input class="form-control" id="nama" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" required />
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
-                           <input class="form-control" id="nos" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" />
+                           <input class="form-control" id="no" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" />
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="tgl_terbit">Tanggal Terbit Sertifikat <span style="color:red; font-size:18px">*</span></label>
-                           <input class="form-control" id="tglt" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" required/>
+                           <input class="form-control" id="tgl_t" name="tgl_terbit" type="date" placeholder="Masukkan tanggal terbit sertifikat" required/>
                         </div>
                         <div class="mb-3">
-                           <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kadaluwarsa Sertifikat</label>
-                           <input class="form-control" id="tglk" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat"  />
+                           <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kedaluwarsa Sertifikat</label>
+                           <input class="form-control" id="tgl_k" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat"  />
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="instansi">Instansi Yang Mengeluarkan <span style="color:red; font-size:18px">*</span></label>
-                           <input class="form-control" id="instansis" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" required/>
+                           <input class="form-control" id="instansii" name="instansi" type="text" placeholder="Masukkan Instansi Yang Mengeluarkan" required/>
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1">Jenis Sertifikat <span style="color:red; font-size:18px">*</span></label>
@@ -207,12 +204,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
-                            <input class="form-control" name="dokumen" type="file" id="dokumens" required>
+                            <input class="form-control" name="dokumen" type="file" id="dokumen">
                          </div>
                         <!-- Submit button-->
                         <div class="d-flex justify-content-between">
-                           <button class="btn btn-primary" type="submit">Edit Data</button>
-                           <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                            <button class="btn btn-primary" type="submit">Edit Data</button>
                         </div>
                 </form>
             </div>
