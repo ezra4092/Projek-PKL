@@ -123,6 +123,10 @@
                                     <td>{{ $sertifikat->jenis}}</td>
                                  </tr>
                                  <tr>
+                                    <td class="fw-bold">Tanggal Terbit Sertifikat</td>
+                                    <td>{{ \Carbon\Carbon::parse($sertifikat->tgl_terbit)->format('d M Y') }}</td>
+                                 </tr>
+                                 <tr>
                                     <td class="fw-bold">Tanggal Kedaluwarsa</td>
                                     <td class="text-danger">{{ \Carbon\Carbon::parse($sertifikat->tgl_kadaluwarsa)->format('d M Y') }}</td>
                                  </tr>

@@ -17,8 +17,8 @@ class DashboardController extends Controller
             'ISO 45001 : 2018'
         ];
 
-        $startDate = now()->subDays(5); // 15 hari sebelum hari ini
-        $endDate = now()->addDays(15); // 15 hari setelah hari ini
+        $startDate = now();
+        $endDate = now()->addDays(30); // 30 hari setelah hari ini
 
         $sertif = Sertifikat::whereIn('jenis', $isoJenis)
         ->whereNotNull('tgl_kadaluwarsa') // Mengabaikan data yang tidak memiliki tgl_kadaluwarsa
