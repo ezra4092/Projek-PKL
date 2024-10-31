@@ -31,5 +31,10 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function documentation()
+    {
+        return view('documentation');
+    }
+
 
 }

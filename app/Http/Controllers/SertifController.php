@@ -49,4 +49,8 @@ class SertifController extends Controller
             'title' => 'Sertifikat'
         ]);
     }
+
+    public function dokumen(){
+        return view('dokumen');
+    }
 }

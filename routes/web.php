@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {return view('login');})->name('login');
 Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 
@@ -50,5 +49,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/iso5', [IsoController::class, 'iso5'])->name('iso5');
     Route::get('/iso6', [IsoController::class, 'iso6'])->name('iso6');
 
+    Route::get('/documentation', [DashboardController::class, 'documentation'])->name('documentation');
 
 });
