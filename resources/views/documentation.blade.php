@@ -87,7 +87,7 @@
                                         </div>
                                         <br>
                                         <form class="form-inline me-auto d-none d-lg-block me-3">
-                                            <div class="input-group input-group-joined input-group-solid">
+                                            <div class="input-group input-group-joined input-group-solid" id="tambahdata">
                                                 <input class="form-control pe-0" type="search" placeholder="Search" aria-label="Search" />
                                                 <div class="input-group-text"><i data-feather="search"></i></div>
                                             </div>
@@ -100,7 +100,7 @@
                     <!-- Main page content-->
                     <div class="container-xl px-4">
                         <div class="card">
-                            <div class="card-header text-dark" id="tambahdata">Menambahkan Data Sertifikat</div>
+                            <div class="card-header text-dark">Menambahkan Data Sertifikat</div>
                             <div class="card-body">
                                 <ol>
                                     <li>Tentukan jenis sertifikat apa yang akan ditambah datanya dengan cara mencari dan memilih pada pilihan yang ada di menu sidenav sebelah kiri.</li>

@@ -50,5 +50,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/iso6', [IsoController::class, 'iso6'])->name('iso6');
 
     Route::get('/documentation', [DashboardController::class, 'documentation'])->name('documentation');
+    Route::get('/eror', [DashboardController::class, 'eror'])->name('eror');
 
 });

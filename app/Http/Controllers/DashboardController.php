@@ -36,5 +36,9 @@ class DashboardController extends Controller
         return view('documentation');
     }
 
+    public function eror(){
+        return view('eror');
+    }
+
 
 }
