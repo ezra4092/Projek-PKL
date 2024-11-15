@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IsoController;
+use App\Http\Controllers\Kirimreminder;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SertifController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\UserController;
+use App\Mail\Reminder;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return view('login');})->name('login');
 Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 
+
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/kirimreminder', [Kirimreminder::class, 'kirimreminder'])->name('reminder');
     Route::post('/tambah-sertif', [SertifikatController::class, 'tambah'])->name('tambah-sertif');
     Route::post('/hapus-sertif', [SertifikatController::class, 'hapus'])->name('hapus-sertif');
     Route::post('/edit-sertif', [SertifikatController::class, 'edit'])->name('edit-sertif');

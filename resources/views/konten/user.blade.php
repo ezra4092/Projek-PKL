@@ -33,6 +33,7 @@
                <tr>
                   <th width="2%">No.</th>
                   <th>Nama</th>
+                  <th>No. Telp</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Privilages</th>
@@ -43,6 +44,7 @@
                <tr>
                   <th width="2%">No.</th>
                   <th>Nama</th>
+                  <th>No. Telp</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Privilages</th>
@@ -55,6 +57,7 @@
                <tr>
                   <td width="2%">{{$no++}}</td>
                   <td>{{$user->nama}}</td>
+                  <td>{{$user->notelp}}</td>
                   <td>{{$user->username}}</td>
                   <td>{{ str_repeat('*', 8) }}</td>
                   <td>{{$user->privilages}}</td>
@@ -62,6 +65,7 @@
                      <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="update"
                         data-id='{{ $user->id}}'
                         data-nama='{{ $user->nama }}'
+                        data-notelp='{{ $user->notelp }}'
                         data-username='{{ $user->username }}'
                         data-password='{{ $user->password }}'
                         data-privilages='{{ $user->privilages}}'
@@ -90,6 +94,10 @@
                            <label class="small mb-1" for="nama">Nama <span style="color:red; font-size:18px">*</span></label>
                            <input class="form-control" id="nama" name="nama" type="text" placeholder="Masukkan nama" required />
                         </div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="notelp">No. Telp <span style="color:red; font-size:18px">*</span></label>
+                            <input class="form-control" id="notelp" name="notelp" type="text" placeholder="Masukkan notelp" required />
+                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="username">Username <span style="color:red; font-size:18px">*</span></label>
                            <input class="form-control" id="username" name="username" type="text" placeholder="Masukkan username" required />
@@ -161,6 +169,10 @@
                            <input class="form-control" id="namae" name="nama" type="text" placeholder="Masukkan nama"  />
                         </div>
                         <div class="mb-3">
+                            <label class="small mb-1" for="notelp">No. Telp <span style="color:red; font-size:18px">*</span></label>
+                            <input class="form-control" id="notelpp" name="notelp" type="text" placeholder="Masukkan notelp" required />
+                         </div>
+                        <div class="mb-3">
                            <label class="small mb-1" for="username">Username <span style="color:red; font-size:18px">*</span></label>
                            <input class="form-control" id="usne" name="username" type="text" placeholder="Masukkan username" />
                         </div>
@@ -204,11 +216,13 @@
      $(document).on('click', '#update', function(e) {
        var id = $(this).attr("data-id");
        var nama = $(this).attr("data-nama");
+       var notelp = $(this).attr("data-notelp");
        var username = $(this).attr("data-username");
        var password = $(this).attr("data-password");
        var privilages = $(this).attr("data-privilages");
        $('#ide').val(id);
        $('#namae').val(nama);
+       $('#notelpp').val(notelp);
        $('#usne').val(username);
        $('#akses').val(privilages);
     });

@@ -19,12 +19,14 @@ class UserData extends Seeder
                 'username' => 'desi',
                 'password' =>  Hash::make('desi123'),
                 'nama' => 'Desi Nur',
+                'email' => 'staf.sisdurlm@antam.com',
                 'privilages'=> 'Full-access'
             ],
             [
                 'username' => 'ezra',
                 'password' => Hash::make('ezra123'),
                 'nama' => 'Ezraa',
+                'email' => 'ezrafairazz@gmail.com',
                 'privilages' => 'Full-access'
             ]
             ];

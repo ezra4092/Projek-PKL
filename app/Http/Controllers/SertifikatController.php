@@ -26,6 +26,7 @@ class SertifikatController extends Controller
         $sertif->tgl_kadaluwarsa = $request->tgl_kadaluwarsa;
         $sertif->instansi = $request->instansi;
         $sertif->jenis = $request->jenis;
+        $sertif->user_id = $request->user_id;
         $sertif->dokumen = 'dokumen/' . $fileName; // Simpan path file ke kolom dokumen
         $sertif->save();
 
@@ -131,6 +132,7 @@ class SertifikatController extends Controller
             $sertif->tgl_kadaluwarsa = $request->tgl_kadaluwarsa;
             $sertif->instansi = $request->instansi;
             $sertif->jenis = $request->jenis;
+            $sertif->user_id = $request->user_id;
             $sertif->dokumen = 'dokumen/' . $fileName;
             $sertif->save();
         }

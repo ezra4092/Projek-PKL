@@ -22,7 +22,7 @@ class DashboardController extends Controller
 
         $sertif = Sertifikat::whereIn('jenis', $isoJenis)
         ->whereNotNull('tgl_kadaluwarsa') // Mengabaikan data yang tidak memiliki tgl_kadaluwarsa
-        ->whereBetween('tgl_kadaluwarsa', [$startDate, $endDate]) // Mengambil data yang kadaluwarsa dalam rentang 15 hari sebelum dan sesudah hari ini
+        ->whereBetween('tgl_kadaluwarsa', [$startDate, $endDate]) // Mengambil data yang kadaluwarsa dalam rentang 30 hari sebelum dan sesudah hari ini
         ->get();
 
         return view('konten.dashboard', [

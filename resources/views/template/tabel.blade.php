@@ -9,6 +9,7 @@
            <th>Instansi Yang Mengeluarkan</th>
            <th>Jenis</th>
            <th>Dokumen</th>
+           <th>Modified</th>
            @if(Auth::user()->privilages == 'Full-access')
            <th>Aksi</th>
            @endif
@@ -43,6 +44,7 @@
            <td>{{$sertif->instansi}}</td>
            <td>{{$sertif->jenis}}</td>
            <td><a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ asset($sertif->dokumen) }}"  target="_blank"><i data-feather="download"></i></a></td>
+           <td>{{$sertif->user->nama}}</td>
            @if(Auth::user()->privilages == 'Full-access')
            <td>
              <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="edit"
@@ -53,6 +55,7 @@
                 data-kadaluwarsa='{{ $sertif->tgl_kadaluwarsa }}'
                 data-instansi='{{ $sertif->instansi }}'
                 data-jenis='{{ $sertif->jenis }}'
+                data-namauser='{{ $sertif->user_id}}'
                 data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
                 <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
                 data-id='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
@@ -113,6 +116,10 @@
                       <option value="ISO 45001 : 2018">ISO 45001 : 2018</option>
                    </select>
                 </div>
+                <div class="mb-3">
+                    <label class="small mb-1" for="nama">Modified <span style="color:red; font-size:18px">*</span></label>
+                    <input class="form-control" id="nama" name="user_id" type="text" value="{{ auth()->user()->id }}" readonly />
+                 </div>
                 <div class="mb-3">
                    <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
                    <input class="form-control" name="dokumen" type="file" id="dokumen" required>

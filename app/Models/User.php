@@ -24,6 +24,12 @@ class User extends Authenticatable
         'username',
         'password',
         'nama',
+        'email',
         'privilages'
     ];
+
+    public function sertifikats()
+    {
+        return $this->hasMany(Sertifikat::class, 'user_id', 'id');
+    }
 }
