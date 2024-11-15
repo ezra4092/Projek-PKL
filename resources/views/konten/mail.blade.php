@@ -24,6 +24,7 @@
     <table>
         <tr>
             <th>ID Sertifikat</th>
+            <th>Nama Sertifikat</th>
             <th>Jenis Sertifikat</th>
             <th>Tanggal Kedaluwarsa</th>
         </tr>
