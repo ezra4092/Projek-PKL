@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('instansi', 200);
             $table->string('jenis', 100);
             $table->string('dokumen', 100);
+            $table->string('keterangan')->nullable();
             $table->unsignedBigInteger('user_id'); // Kolom untuk relasi ke tabel user
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
         });

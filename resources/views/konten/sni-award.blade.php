@@ -15,7 +15,7 @@
                <i class="me-1" data-feather="users"></i>
                Manage Groups
                </a> --}}
-               <a class="btn btn-sm btn-light text-primary" type="button" data-bs-toggle="modal" data-bs-target="#tambahModal">
+               <a class="btn btn-light text-primary me-5" type="button" data-bs-toggle="modal" data-bs-target="#tambahModal">
                <i class="me-1" data-feather="folder-plus"></i>
                Tambah Data
                </a>

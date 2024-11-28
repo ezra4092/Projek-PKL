@@ -27,7 +27,8 @@ class SertifikatController extends Controller
         $sertif->instansi = $request->instansi;
         $sertif->jenis = $request->jenis;
         $sertif->user_id = $request->user_id;
-        $sertif->dokumen = 'dokumen/' . $fileName; // Simpan path file ke kolom dokumen
+        $sertif->dokumen = 'dokumen/' . $fileName;
+        $sertif->keterangan = $request->keterangan;
         $sertif->save();
 
         switch ($sertif->jenis) {
@@ -134,6 +135,7 @@ class SertifikatController extends Controller
             $sertif->jenis = $request->jenis;
             $sertif->user_id = $request->user_id;
             $sertif->dokumen = 'dokumen/' . $fileName;
+            $sertif->keterangan = $request->keterangan;
             $sertif->save();
         }
 

@@ -9,6 +9,7 @@
            <th>Instansi Yang Mengeluarkan</th>
            <th>Jenis</th>
            <th>Dokumen</th>
+           <th>Keterangan</th>
            <th>Modified</th>
            @if(Auth::user()->privilages == 'Full-access')
            <th>Aksi</th>
@@ -16,21 +17,23 @@
         </tr>
      </thead>
 
-     {{-- <tfoot>
+     <tfoot>
         <tr>
-         <th width="2%">No.</th>
-         <th>Nama Sertifikat</th>
-         <th>Nomor Sertifikat</th>
-         <th>Tanggal Terbit</th>
-         <th>Tanggal Kedaluwarsa</th>
-         <th>Instansi Yang Mengeluarkan</th>
-         <th>Jenis</th>
-         <th>Dokumen</th>
-         @if(Auth::user()->privilages == 'Full-access')
-           <th>Aksi</th>
-         @endif
-        </tr>
-     </tfoot> --}}
+            <th width="2%">No.</th>
+            <th>Nama Sertifikat</th>
+            <th>Nomor Sertifikat</th>
+            <th>Tanggal Terbit</th>
+            <th>Tanggal Kedaluwarsa</th>
+            <th>Instansi Yang Mengeluarkan</th>
+            <th>Jenis</th>
+            <th>Dokumen</th>
+            <th>Keterangan</th>
+            <th>Modified</th>
+            @if(Auth::user()->privilages == 'Full-access')
+            <th>Aksi</th>
+            @endif
+         </tr>
+     </tfoot>
 
      <tbody>
         @php $no = 1; @endphp
@@ -44,6 +47,7 @@
            <td>{{$sertif->instansi}}</td>
            <td>{{$sertif->jenis}}</td>
            <td><a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ asset($sertif->dokumen) }}"  target="_blank"><i data-feather="download"></i></a></td>
+           <td>{{$sertif->keterangan}}</td>
            <td>{{$sertif->user->nama}}</td>
            @if(Auth::user()->privilages == 'Full-access')
            <td>
@@ -55,8 +59,9 @@
                 data-kadaluwarsa='{{ $sertif->tgl_kadaluwarsa }}'
                 data-instansi='{{ $sertif->instansi }}'
                 data-jenis='{{ $sertif->jenis }}'
-                data-namauser='{{ $sertif->user_id}}'
-                data-dokumen='{{ $sertif->dokumen }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
+                data-user='{{ $sertif->user_id}}'
+                data-dokumen='{{ $sertif->dokumen }}'
+                data-keterangan='{{ $sertif->keterangan }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
                 <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
                 data-id='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
              </td>
@@ -102,27 +107,67 @@
                    <label class="small mb-1">Jenis Sertifikat <span style="color:red; font-size:18px">*</span></label>
                    <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
                       <option selected="" disabled="">Pilih jenis sertifikat</option>
-                      <option value="Sertifikat CSR">Sertifikat CSR</option>
-                      <option value="Sertifikat HSE">Sertifikat HSE</option>
-                      <option value="Penghargaan">Penghargaan</option>
-                      <option value="Proper">Proper</option>
-                      <option value="SNI Award">SNI Award</option>
-                      <option value="SWA">SWA</option>
-                      <option value="ISO 9001 : 2015">ISO 9001 : 2015</option>
-                      <option value="ISO 14001 : 2015">ISO 14001 : 2015</option>
-                      <option value="ISO 27001 : 2015">ISO 27001 : 2015</option>
-                      <option value="ISO 37001 : 2016">ISO 37001 : 2016</option>
-                      <option value="ISO 17025 : 2017">ISO 17025 : 2017</option>
-                      <option value="ISO 45001 : 2018">ISO 45001 : 2018</option>
-                   </select>
+                      @switch($title)
+                        @case('CSR')
+                            <option value="Sertifikat CSR" selected>Sertifikat CSR</option>
+                            @break
+
+                        @case('HSE')
+                            <option value="Sertifikat HSE" selected>Sertifikat HSE</option>
+                            @break
+
+                        @case('Penghargaan')
+                            <option value="Penghargaan" selected>Penghargaan</option>
+                            @break
+
+                        @case('Proper')
+                            <option value="Proper" selected>Proper</option>
+                            @break
+
+                        @case('SNI Award')
+                            <option value="SNI Award" selected>SNI Award</option>
+                            @break
+
+                        @case('SWA')
+                            <option value="SWA" selected>SWA</option>
+                            @break
+
+                        @case('ISO 9001 : 2015')
+                            <option value="ISO 9001 : 2015" selected>ISO 9001 : 2015</option>
+                            @break
+
+                        @case('ISO 14001 : 2015')
+                            <option value="ISO 14001 : 2015" selected>ISO 14001 : 2015</option>
+                            @break
+
+                        @case('ISO 27001 : 2015')
+                            <option value="ISO 27001 : 2015" selected>ISO 27001 : 2015</option>
+                            @break
+
+                        @case('ISO 37001 : 2016')
+                            <option value="ISO 37001 : 2016" selected>ISO 37001 : 2016</option>
+                            @break
+
+                        @case('ISO 17025 : 2017')
+                            <option value="ISO 17025 : 2017" selected>ISO 17025 : 2017</option>
+                            @break
+
+                        @case('ISO 45001 : 2018')
+                            <option value="ISO 45001 : 2018" selected>ISO 45001 : 2018</option>
+                            @break
+
+                        @default
+                            <option value="" selected>Pilih Sertifikat</option>
+                    @endswitch
                 </div>
-                <div class="mb-3">
-                    <label class="small mb-1" for="nama">Modified <span style="color:red; font-size:18px">*</span></label>
-                    <input class="form-control" id="nama" name="user_id" type="text" value="{{ auth()->user()->id }}" readonly />
-                 </div>
+                <input class="form-control" id="user" name="user_id" type="hidden" value="{{ auth()->user()->id }}" readonly />
                 <div class="mb-3">
                    <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
                    <input class="form-control" name="dokumen" type="file" id="dokumen" required>
+                </div>
+                <div class="mb-3">
+                    <label class="small mb-1" for="keterangan">Keterangan</label>
+                    <input class="form-control" id="keterangan" name="keterangan" type="text" placeholder="Masukkan nama sertifikat" value=""/>
                 </div>
                <!-- Submit button-->
                <div class="d-flex justify-content-between">
@@ -173,7 +218,7 @@
                         <input type="hidden" name="idsertif" id="id">
                         <div class="mb-3">
                            <label class="small mb-1" for="nama_sertif">Nama Sertifikat <span style="color:red; font-size:18px">*</span></label>
-                           <input class="form-control" id="nama" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" required />
+                           <input class="form-control" id="namae" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" required />
                         </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
@@ -209,9 +254,14 @@
                                 <option value="ISO 45001 : 2018" {{ isset($sertif) && $sertif->jenis == 'ISO 45001 : 2018' ? 'selected' : '' }}>ISO 45001 : 2018</option>
                             </select>
                         </div>
+                        <input class="form-control" id="user" name="user_id" type="hidden" value="{{ auth()->user()->id }}" readonly />
                         <div class="mb-3">
                             <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
-                            <input class="form-control" name="dokumen" type="file" id="dokumen">
+                            <input class="form-control" name="dokumen" type="file" id="dokumenn">
+                         </div>
+                         <div class="mb-3">
+                            <label class="small mb-1" for="keterangan">Keterangan</label>
+                            <input class="form-control" id="ayam" name="keterangan" type="text" placeholder="Masukkan Keterangan" value="" />
                          </div>
                         <!-- Submit button-->
                         <div class="d-flex justify-content-between">

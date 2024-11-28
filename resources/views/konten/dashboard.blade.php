@@ -110,20 +110,12 @@
                 <div class="col-md-4 col-sm-6 mb-4">
                    <div class="card h-100 shadow rounded-3 border-primary">
                       <div class="card-body bg-light rounded-3">
-                        {{$sertifikat->idsertif}}
-                         <h5 class="card-title text-primary">{{ $sertifikat->nama_sertif }}
-                            {{-- <a href="" class="position-absolute top-0 end-0 me-5 mt-4">
-                            <i data-feather="bell" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
-                            </a>
+                         <h5 class="card-title text-secondary">{{ $sertifikat->nama_sertif }}
                          </h5>
-                         --}}
                          <table class="table table-sm table-borderless">
                             <tbody>
-                               <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#reminderModal" id="reminder"
-                                  data-id='{{ $sertifikat->idsertif }}' data-nama='{{ $sertifikat->nama_sertif }}'
-                                  data-no='{{ $sertifikat->no_sertif }}' data-kadaluwarsa='{{ $sertifikat->tgl_kadaluwarsa }}' data-jenis='{{ $sertifikat->jenis }}'><i data-feather="bell"></i></button>
-                               <tr>
-                                  <td class="fw-bold">Nomor Sertifikat</td>
+                                <tr>
+                                    <td class="fw-bold">Nomor Sertifikat</td>
                                   <td>{{ $sertifikat->no_sertif }}</td>
                                </tr>
                                <tr>
@@ -131,17 +123,25 @@
                                   <td>{{ $sertifikat->jenis}}</td>
                                </tr>
                                <tr>
-                                  <td class="fw-bold">Tanggal Terbit Sertifikat</td>
-                                  <td>{{ \Carbon\Carbon::parse($sertifikat->tgl_terbit)->format('d M Y') }}</td>
-                               </tr>
-                               <tr>
-                                  <td class="fw-bold">Tanggal Kedaluwarsa</td>
-                                  <td class="text-danger">{{ \Carbon\Carbon::parse($sertifikat->tgl_kadaluwarsa)->format('d M Y') }}</td>
-                               </tr>
-                               <tr>
-                                  <td class="fw-bold">Modified by </td>
-                                  <td>{{ $sertifikat->user->nama}}</td>
-                               </tr>
+                                   <td class="fw-bold">Tanggal Terbit Sertifikat</td>
+                                   <td>{{ \Carbon\Carbon::parse($sertifikat->tgl_terbit)->format('d M Y') }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Tanggal Kedaluwarsa</td>
+                                    <td class="text-danger">{{ \Carbon\Carbon::parse($sertifikat->tgl_kadaluwarsa)->format('d M Y') }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Modified by </td>
+                                    <td>{{ $sertifikat->user->nama}}</td>
+                                </tr>
+                                <tr><td>
+
+                                </td>
+                                    <td><button type="button" class="btn btn-sm btn-secondary d-inline-flex d-flex justify-content-end mt-2" data-bs-toggle="modal" data-bs-target="#reminderModal" id="reminder"
+                                        data-id='{{ $sertifikat->idsertif }}' data-nama='{{ $sertifikat->nama_sertif }}'
+                                        data-no='{{ $sertifikat->no_sertif }}' data-kadaluwarsa='{{ $sertifikat->tgl_kadaluwarsa }}' data-jenis='{{ $sertifikat->jenis }}'>
+                                        Kirim Reminder</button></td>
+                                </tr>
                             </tbody>
                          </table>
                       </div>
@@ -154,7 +154,7 @@
        </div>
     </div>
  </div>
- <!-- Button trigger modal -->
+
  <!-- Modal -->
  <div class="modal fade" id="reminderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -164,12 +164,12 @@
              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-             <form class="user" action="{{ route('reminder') }}" method="GET" enctype="multipart/form-data">
+             <form class="user" action="{{ route('reminder') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="idsertiff" id="id">
                 <div class="mb-3">
-                    <label class="small mb-1" for="nama_sertif">Nama Sertifikat
-                    <input class="form-control" id="nama" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" readonly />
+                    <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
+                    <input class="form-control" id="nama" name="nama_sertif" type="text" placeholder="Masukkan nomor sertifikat" readonly />
                 </div>
                 <div class="mb-3">
                     <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
@@ -180,8 +180,8 @@
                    <input class="form-control" id="tgl_k" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" readonly/>
                 </div>
                 <div class="mb-3">
-                    <label class="small mb-1">Jenis Sertifikat <span style="color:red; font-size:18px">*</span></label>
-                    <select class="form-select" aria-label="Default select example" id="jenis" name="jenis" @readonly(true)>
+                    <label class="small mb-1">Jenis Sertifikat</label>
+                    <select class="form-select" aria-label="Default select example" id="jenis" name="jenis"  readonly >
                         <option value="ISO 9001 : 2015" {{ isset($sertif) && $sertif->jenis == 'ISO 9001 : 2015' ? 'selected' : '' }}>ISO 9001 : 2015</option>
                         <option value="ISO 14001 : 2015" {{ isset($sertif) && $sertif->jenis == 'ISO 14001 : 2015' ? 'selected' : '' }}>ISO 14001 : 2015</option>
                         <option value="ISO 27001 : 2015" {{ isset($sertif) && $sertif->jenis == 'ISO 27001 : 2015' ? 'selected' : '' }}>ISO 27001 : 2015</option>
@@ -190,10 +190,11 @@
                         <option value="ISO 45001 : 2018" {{ isset($sertif) && $sertif->jenis == 'ISO 45001 : 2018' ? 'selected' : '' }}>ISO 45001 : 2018</option>
                     </select>
                 </div>
+                <p>Apakah anda yakin akan mengirim remider?</p>
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-          <button type="submit" class="btn btn-primary">Kirim</button>
+          <button type="submit" class="btn btn-primary">Kirim Reminder</button>
           </div>
           </form>
        </div>

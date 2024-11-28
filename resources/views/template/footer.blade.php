@@ -14,14 +14,18 @@
             var instansi = $(this).attr('data-instansi');
             var jenis = $(this).attr('data-jenis');
             var dokumen = $(this).attr('data-dokumen');
+            var keterangan = $(this).attr('data-keterangan');
+            var user = $(this).attr('data-user');
             $('#id').val(id);
-            $('#nama').val(nama);
+            $('#namae').val(nama);
             $('#no').val(no);
             $('#tgl_t').val(terbit);
             $('#tgl_k').val(kadaluwarsa);
             $('#instansii').val(instansi);
             $('#jenis').val(jenis);
-            $('#dokumen').val(dokumen);
+            $('#dokumenn').val(dokumen);
+            $('#ayam').val(keterangan);
+            $('#useridd').val(user);
         });
     </script>
 

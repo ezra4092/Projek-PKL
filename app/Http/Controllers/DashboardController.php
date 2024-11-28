@@ -27,7 +27,7 @@ class DashboardController extends Controller
 
         return view('konten.dashboard', [
             'data' => $sertif,
-            'title' => 'Sertifikat'
+            'title' => 'Dashboard'
         ]);
     }
 

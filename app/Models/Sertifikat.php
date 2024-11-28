@@ -17,7 +17,8 @@ class Sertifikat extends Model
         'tgl_kadaluwarsa',
         'instansi',
         'jenis',
-        'dokumen'
+        'dokumen',
+        'keterangan'
     ];
     use HasFactory;
 

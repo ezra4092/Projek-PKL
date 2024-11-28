@@ -83,7 +83,7 @@
                                             Panduan Pengguna
                                         </h1>
                                         <div class="page-header-subtitle">
-                                            Selamat datang di panduan ini! Panduan ini akan memandu Anda secara langkah demi langkah untuk mencari, melihat, dan mengunduh secara online. Dengan mengikuti petunjuk di bawah ini, Anda dapat dengan mudah mengakses dan mengelola sertifikat Anda.
+                                            Selamat datang di panduan ini! Panduan ini akan memandu Anda secara langkah demi langkah untuk mencari, melihat, dan mengunduh sertifikat secara online. Dengan mengikuti petunjuk di bawah ini, Anda dapat dengan mudah mengakses dan mengelola sertifikat Anda.
                                         </div>
                                         <br>
                                         <form class="form-inline me-auto d-none d-lg-block me-3">
@@ -126,7 +126,7 @@
                             <div class="card-body">
                                 <ol>
                                     <li>Gunakan fitur pencarian atau filter untuk menemukan data sertifikat yang ingin diedit.</li>
-                                    <li>Klik pada tombol edit atau ikon pensil yang terkait dengan data sertifikat yang ingin diubah.</li>
+                                    <li>Klik tombol edit atau ikon pensil yang terkait dengan data sertifikat yang ingin diubah.</li>
                                     <li>Akan muncul formulir untuk edit data. </li>
                                     <li>Ubah data yang ingin diperbarui pada formulir edit. Pastikan semua kolom input sudah terisi semua.</li>
                                     <li>Saat mengunggah file sertifikat, pastikan ukuran file tidak lebih dari 2mb.</li>
@@ -139,7 +139,7 @@
                             <div class="card-body">
                                 <ol>
                                     <li>Gunakan fitur pencarian atau filter untuk menemukan data sertifikat yang ingin dihapus.</li>
-                                    <li>Klik pada tombol hapus atau ikon tempat sampah yang terkait dengan data sertifikat yang ingin dihapus.</li>
+                                    <li>Klik tombol hapus atau ikon tempat sampah yang terkait dengan data sertifikat yang ingin dihapus.</li>
                                     <li>Akan muncul peringatan untuk konfirmasi sebelum menghapus data secara permanen. </li>
                                     <li>Pastikan Anda memilih data yang benar sebelum melanjutkan.</li>
                                     <li>Klik tombol "Hapus Data". Lalu data akan terhapus secara permanen.</li>

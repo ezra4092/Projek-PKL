@@ -19,6 +19,7 @@ class UserController extends Controller
         $user = new User();
         $user->nama = $request->nama;
         $user->username = $request->username;
+        $user->email = $request->email;
         $user->password =  Hash::make($request->password);
         $user->privilages = $request->privilages;
         $user->save();
@@ -36,14 +37,17 @@ class UserController extends Controller
         // dd($request->all());
         $akun = User::find($request->id);
         if ($request->password == null){
-            if($request->privilages != null){
+            if($request->privilages == null){
                 $akun->nama = $request->nama;
                 $akun->username = $request->username;
-                $akun->privilages = $request->privilages;
+                $akun->email = $request->email;
                 $akun->save();
             } else {
                 $akun->nama = $request->nama;
                 $akun->username = $request->username;
+                $akun->username = $request->username;
+                $akun->email = $request->email;
+                $akun->privilages = $request->privilages;
                 $akun->save();
             }
         } else {
@@ -51,6 +55,7 @@ class UserController extends Controller
             $akun->username = $request->username;
             $akun->privilages = $request->privilages;
             $akun->password = $request->password;
+            $akun->email = $request->email;
             $akun->save();
         }
         return redirect()->route('user')->with(['edit' => true, 'message' => 'Akun Berhasil diedit']);
