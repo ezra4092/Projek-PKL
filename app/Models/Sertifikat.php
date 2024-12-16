@@ -18,7 +18,8 @@ class Sertifikat extends Model
         'instansi',
         'jenis',
         'dokumen',
-        'keterangan'
+        'keterangan',
+        'user_id'
     ];
     use HasFactory;
 

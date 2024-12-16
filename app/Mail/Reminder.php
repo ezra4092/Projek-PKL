@@ -31,6 +31,6 @@ class Reminder extends Mailable
     public function build()
     {
         return $this->subject('Reminder: Sertifikat ISO Anda Akan Segera Kedaluwarsa')
-                    ->view('konten.mail'); // Pastikan Anda membuat view ini
+                    ->view('konten.mail');
     }
 }

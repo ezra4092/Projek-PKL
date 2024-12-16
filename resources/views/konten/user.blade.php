@@ -33,7 +33,7 @@
                <tr>
                   <th width="2%">No.</th>
                   <th>Nama</th>
-                  <th>Email/th>
+                  <th>Email</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Privilages</th>
@@ -95,8 +95,8 @@
                            <input class="form-control" id="nama" name="nama" type="text" placeholder="Masukkan nama" required />
                         </div>
                         <div class="mb-3">
-                            <label class="small mb-1" for="email">No. Telp <span style="color:red; font-size:18px">*</span></label>
-                            <input class="form-control" id="email" name="email" type="text" placeholder="Masukkan email" required />
+                            <label class="small mb-1" for="email">Email</label>
+                            <input class="form-control" id="email" name="email" type="text" placeholder="Masukkan email" />
                          </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="username">Username <span style="color:red; font-size:18px">*</span></label>
@@ -117,8 +117,8 @@
                          </div>
                         <!-- Submit button-->
                         <div class="d-flex justify-content-between">
-                           <button class="btn btn-primary" type="submit">Tambah Data</button>
-                           <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                            <button class="btn btn-primary" type="submit">Tambah Data</button>
                         </div>
                      </form>
                   </div>
@@ -169,8 +169,8 @@
                            <input class="form-control" id="namaa" name="nama" type="text" placeholder="Masukkan nama"  />
                         </div>
                         <div class="mb-3">
-                            <label class="small mb-1" for="email">No. Telp <span style="color:red; font-size:18px">*</span></label>
-                            <input class="form-control" id="emaile" name="email" type="text" placeholder="Masukkan email" required />
+                            <label class="small mb-1" for="email">Email </label>
+                            <input class="form-control" id="emaile" name="email" type="text" placeholder="Masukkan email" />
                          </div>
                         <div class="mb-3">
                            <label class="small mb-1" for="username">Username <span style="color:red; font-size:18px">*</span></label>
@@ -178,7 +178,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="small mc-1">Password <span style="color:red; font-size:18px">*</span></label>
-                            <input class="form-control" type="password" id="pwe">
+                            <input class="form-control" type="password" id="pwe" name="password">
                             <div style="color:red; font-size:10px">
                                 *tidak perlu diisi jika tidak diganti
                             </div>
@@ -194,8 +194,8 @@
                         </div>
                         <!-- Submit button-->
                         <div class="d-flex justify-content-between">
-                           <button class="btn btn-primary" type="submit">Edit Data</button>
-                           <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                            <button class="btn btn-primary" type="submit">Edit Data</button>
                         </div>
                      </form>
                   </div>
@@ -225,7 +225,7 @@
        $('#emaile').val(email);
        $('#usne').val(username);
        $('#akses').val(privilages);
-       $('#pwe').val(password);
+    //    $('#pwe').val(password);
 
 
     });

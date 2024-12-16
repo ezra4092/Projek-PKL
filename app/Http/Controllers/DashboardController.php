@@ -40,5 +40,14 @@ class DashboardController extends Controller
         return view('eror');
     }
 
+    public function editform(){
+        $sertif = Sertifikat::all();
+        return view('template.formedit', [
+            'title' => 'Edit Data',
+            'data' => $sertif
+        ]
+    );
+    }
+
 
 }

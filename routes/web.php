@@ -29,6 +29,7 @@ Route::post('/proses', [LoginController::class, 'login'])->name('proses');
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+    Route::post('/edit-form', [DashboardController::class, 'editform'])->name('edit-form');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/kirimreminder', [Kirimreminder::class, 'kirimreminder'])->name('reminder');
     Route::post('/tambah-sertif', [SertifikatController::class, 'tambah'])->name('tambah-sertif');

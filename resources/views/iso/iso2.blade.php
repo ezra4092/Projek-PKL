@@ -34,31 +34,4 @@
  </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <script>
-        $(document).on('click', '#delete', function(e) {
-            var id = $(this).attr("data-id");
-            $('#idsertiff').val(id);
-        });
-
-        $(document).on('click', '#update', function(e) {
-            var id = $(this).attr("data-id");
-            var nama = $(this).attr("data-nama");
-            var no = $(this).attr("data-no");
-            var terbit = $(this).attr("data-terbit");
-            var kadaluwarsa = $(this).attr('data-kadaluwarsa');
-            var instansi = $(this).attr('data-instansi');
-            var jenis = $(this).attr('data-jenis');
-            var dokumen = $(this).attr('data-dokumen');
-            $('#ids').val(id);
-            $('#namas').val(nama);
-            $('#nos').val(no);
-            $('#tglt').val(terbit);
-            $('#tglk').val(kadaluwarsa);
-            $('#instansis').val(instansi);
-            $('#jenis').val(jenis);
-            $('#dokumens').val(dokumen);
-        });
-    </script>
-
 @endsection

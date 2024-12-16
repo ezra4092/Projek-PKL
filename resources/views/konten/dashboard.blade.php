@@ -134,14 +134,12 @@
                                     <td class="fw-bold">Modified by </td>
                                     <td>{{ $sertifikat->user->nama}}</td>
                                 </tr>
-                                <tr><td>
-
-                                </td>
+                                {{-- <tr>
                                     <td><button type="button" class="btn btn-sm btn-secondary d-inline-flex d-flex justify-content-end mt-2" data-bs-toggle="modal" data-bs-target="#reminderModal" id="reminder"
                                         data-id='{{ $sertifikat->idsertif }}' data-nama='{{ $sertifikat->nama_sertif }}'
                                         data-no='{{ $sertifikat->no_sertif }}' data-kadaluwarsa='{{ $sertifikat->tgl_kadaluwarsa }}' data-jenis='{{ $sertifikat->jenis }}'>
                                         Kirim Reminder</button></td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                          </table>
                       </div>

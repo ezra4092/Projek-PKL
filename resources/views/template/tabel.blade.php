@@ -1,7 +1,7 @@
 <table id="datatablesSimple" class="table table-striped">
     <thead>
         <tr>
-           <th width="2%">No.</th>
+           <th>No.</th>
            <th>Nama Sertifikat</th>
            <th>Nomor Sertifikat</th>
            <th>Tanggal Terbit</th>
@@ -19,7 +19,7 @@
 
      <tfoot>
         <tr>
-            <th width="2%">No.</th>
+            <th>No.</th>
             <th>Nama Sertifikat</th>
             <th>Nomor Sertifikat</th>
             <th>Tanggal Terbit</th>
@@ -51,7 +51,7 @@
            <td>{{$sertif->user->nama}}</td>
            @if(Auth::user()->privilages == 'Full-access')
            <td>
-             <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="edit"
+             <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="update"
                 data-id='{{ $sertif->idsertif }}'
                 data-nama='{{ $sertif->nama_sertif }}'
                 data-no='{{ $sertif->no_sertif }}'
@@ -81,8 +81,9 @@
              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-             <form class="user" action="{{ route('tambah-sertif') }}" method="POST" enctype="multipart/form-data">
+              <form class="user" action="{{ route('tambah-sertif') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input class="form-control" id="user" name="user_id" type="hidden" value="{{ auth()->user()->id }}" readonly />
                 <div class="mb-3">
                    <label class="small mb-1" for="nama_sertif">Nama Sertifikat <span style="color:red; font-size:18px">*</span></label>
                    <input class="form-control" id="nama_sertif" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" value="" required />
@@ -159,8 +160,8 @@
                         @default
                             <option value="" selected>Pilih Sertifikat</option>
                     @endswitch
+                </select>
                 </div>
-                <input class="form-control" id="user" name="user_id" type="hidden" value="{{ auth()->user()->id }}" readonly />
                 <div class="mb-3">
                    <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
                    <input class="form-control" name="dokumen" type="file" id="dokumen" required>
@@ -213,9 +214,10 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                    <form class="user" action="{{ route('edit-sertif') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="idsertif" id="id">
+                <form class="user" action="{{ route('edit-sertif') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="idsertif" id="id">
+                    <input class="form-control" type="hidden" id="useridd" name="user_id" type="text" readonly />
                         <div class="mb-3">
                            <label class="small mb-1" for="nama_sertif">Nama Sertifikat <span style="color:red; font-size:18px">*</span></label>
                            <input class="form-control" id="namae" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" required />
@@ -238,7 +240,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1">Jenis Sertifikat <span style="color:red; font-size:18px">*</span></label>
-                            <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
+                            <select class="form-select" aria-label="Default select example" id="jenise" name="jenis">
                                 <option disabled {{ isset($sertif) && $sertif->jenis == null ? 'selected' : '' }}>Pilih jenis sertifikat</option>
                                 <option value="Sertifikat CSR" {{ isset($sertif) && $sertif->jenis == 'Sertifikat CSR' ? 'selected' : '' }}>Sertifikat CSR</option>
                                 <option value="Sertifikat HSE" {{ isset($sertif) && $sertif->jenis == 'Sertifikat HSE' ? 'selected' : '' }}>Sertifikat HSE</option>
@@ -254,18 +256,17 @@
                                 <option value="ISO 45001 : 2018" {{ isset($sertif) && $sertif->jenis == 'ISO 45001 : 2018' ? 'selected' : '' }}>ISO 45001 : 2018</option>
                             </select>
                         </div>
-                        <input class="form-control" id="user" name="user_id" type="hidden" value="{{ auth()->user()->id }}" readonly />
                         <div class="mb-3">
                             <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
                             <input class="form-control" name="dokumen" type="file" id="dokumenn">
                          </div>
                          <div class="mb-3">
-                            <label class="small mb-1" for="keterangan">Keterangan</label>
-                            <input class="form-control" id="ayam" name="keterangan" type="text" placeholder="Masukkan Keterangan" value="" />
-                         </div>
-                        <!-- Submit button-->
-                        <div class="d-flex justify-content-between">
-                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                             <label class="small mb-1" for="keterangan">Keterangan</label>
+                             <input class="form-control" id="ket" name="keterangan" type="text" placeholder="Masukkan Keterangan" value="" />
+                            </div>
+                            <!-- Submit button-->
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
                             <button class="btn btn-primary" type="submit">Edit Data</button>
                         </div>
                 </form>
@@ -273,3 +274,35 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+    $(document).on('click', '#delete', function(e) {
+        var id = $(this).attr("data-id");
+        $('#idsertiff').val(id);
+    });
+
+    $(document).on('click', '#update', function(e) {
+        var id = $(this).attr("data-id");
+        var nama = $(this).attr("data-nama");
+        var no = $(this).attr("data-no");
+        var terbit = $(this).attr("data-terbit");
+        var kadaluwarsa = $(this).attr('data-kadaluwarsa');
+        var instansi = $(this).attr('data-instansi');
+        var jenis = $(this).attr('data-jenis');
+        var dokumen = $(this).attr('data-dokumen');
+        var keterangan = $(this).attr('data-keterangan');
+        var user = $(this).attr('data-user');
+        $('#id').val(id);
+        $('#namae').val(nama);
+        $('#no').val(no);
+        $('#tgl_t').val(terbit);
+        $('#tgl_k').val(kadaluwarsa);
+        $('#instansii').val(instansi);
+        $('#jenise').val(jenis);
+        $('#dokumenn').val(dokumen);
+        $('#ket').val(keterangan);
+        $('#useridd').val(user);
+    });
+
+</script>

@@ -18,7 +18,7 @@
     <!-- Documentation Dropdown-->
     <li>
         <a class="nav-link collapsed me-3" href="documentation" aria-controls="pagesCollapseAccount">
-            Documentation
+            Panduan Pengguna
          </a>
     </li>
     {{-- <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
