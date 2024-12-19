@@ -94,11 +94,13 @@
                 </a>
              </nav>
           </div>
+          @if(Auth::user()->privilages == 'Full-access')
           <a class="nav-link collapsed" href="user" >
              <div class="nav-link-icon"><i data-feather="user"></i></div>
              User
              <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
           </a>
+          @endif
        </div>
     </div>
     <!-- Sidenav Footer-->

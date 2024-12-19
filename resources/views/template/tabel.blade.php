@@ -51,7 +51,7 @@
            <td>{{$sertif->user->nama}}</td>
            @if(Auth::user()->privilages == 'Full-access')
            <td>
-             <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="update"
+             <button class="btn btn-datatable btn-icon btn-warning" id="update"
                 data-id='{{ $sertif->idsertif }}'
                 data-nama='{{ $sertif->nama_sertif }}'
                 data-no='{{ $sertif->no_sertif }}'
@@ -62,7 +62,7 @@
                 data-user='{{ $sertif->user_id}}'
                 data-dokumen='{{ $sertif->dokumen }}'
                 data-keterangan='{{ $sertif->keterangan }}' data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark" data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
+                <button type="button" class="btn btn-datatable btn-icon btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
                 data-id='{{ $sertif->idsertif }}'><i class="fa-solid fa-trash"></i></button>
              </td>
              @endif
@@ -165,6 +165,9 @@
                 <div class="mb-3">
                    <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
                    <input class="form-control" name="dokumen" type="file" id="dokumen" required>
+                   <div style="color:red; font-size:10px">
+                    *pastikan ukuran file tidak lebih dari 2mb
+                </div>
                 </div>
                 <div class="mb-3">
                     <label class="small mb-1" for="keterangan">Keterangan</label>
@@ -217,7 +220,7 @@
                 <form class="user" action="{{ route('edit-sertif') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="idsertif" id="id">
-                    <input class="form-control" type="hidden" id="useridd" name="user_id" type="text" readonly />
+                    <input class="form-control" type="hidden" id="useridd" name="user_id" type="text" value="{{ auth()->user()->id }}"  readonly />
                         <div class="mb-3">
                            <label class="small mb-1" for="nama_sertif">Nama Sertifikat <span style="color:red; font-size:18px">*</span></label>
                            <input class="form-control" id="namae" name="nama_sertif" type="text" placeholder="Masukkan nama sertifikat" required />
@@ -259,6 +262,9 @@
                         <div class="mb-3">
                             <label for="formFile" class="small mb-1">Masukan file <span style="color:red; font-size:18px">*</span></label>
                             <input class="form-control" name="dokumen" type="file" id="dokumenn">
+                            <div style="color:red; font-size:10px">
+                                *pastikan ukuran file tidak lebih dari 2mb
+                            </div>
                          </div>
                          <div class="mb-3">
                              <label class="small mb-1" for="keterangan">Keterangan</label>

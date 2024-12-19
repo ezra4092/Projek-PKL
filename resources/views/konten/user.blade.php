@@ -1,5 +1,6 @@
 @extends('template.main')
 @section('konten')
+@if(Auth::user()->privilages == 'Full-access')
 <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
    <div class="container-fluid px-4">
       <div class="page-header-content">
@@ -62,7 +63,7 @@
                   <td>{{ str_repeat('*', 8) }}</td>
                   <td>{{$user->privilages}}</td>
                   <td>
-                     <button class="btn btn-datatable btn-icon btn-transparent-dark me-2" id="update"
+                     <button class="btn btn-datatable btn-icon btn-warning" id="update"
                         data-id='{{ $user->id}}'
                         data-nama='{{ $user->nama }}'
                         data-email='{{ $user->email }}'
@@ -70,7 +71,7 @@
                         data-password='{{ $user->password }}'
                         data-privilages='{{ $user->privilages}}'
                         data-bs-toggle="modal" data-bs-target="#editModal"><i data-feather="edit"></i></button>
-                     <button type="button" class="btn btn-datatable btn-icon btn-transparent-dark"
+                     <button type="button" class="btn btn-datatable btn-icon btn-danger me-3"
                         data-bs-toggle="modal" data-bs-target="#hapusModal" id="delete"
                         data-id='{{ $user->id }}'><i class="fa-solid fa-trash"></i></button>
                   </td>
@@ -206,6 +207,7 @@
       </div>
    </div>
 </div>
+@endif
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
    $(document).on('click', '#delete', function(e) {

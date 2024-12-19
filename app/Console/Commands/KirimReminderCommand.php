@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Mail\Reminder;
+use App\Mail\Reminder2;
 use App\Models\Sertifikat;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -38,27 +39,28 @@ class KirimReminderCommand extends Command
             ->with('user')
             ->get();
 
+        // Ambil semua email dari tabel users
+        $users = User::whereNotNull('email')->get();
+        $ccEmails = $users->pluck('email')->toArray();
+
         if ($sertif->isEmpty()) {
-            $this->info('Tidak ada sertifikat yang perlu diingatkan.');
+            foreach ($users as $user) {
+                Mail::to($user->email)
+                    ->cc(array_diff($ccEmails, [$user->email]))
+                    ->send(new Reminder2($sertif)); // Email khusus untuk kondisi tidak ada sertifikat
+
+                $this->info("Email pemberitahuan dikirim ke {$user->email} (tidak ada sertifikat yang kedaluwarsa).");
+            }
             return;
         }
 
-        // Ambil semua email dari tabel users, kecuali pembuat data
-        $creatorIds = $sertif->pluck('user_id')->unique();
-        $users = User::whereNotNull('email')
-                     ->whereNotIn('id', $creatorIds)
-                     ->get();
-
-        // Catat email yang dikirim
+        // Jika ada sertifikat yang kedaluwarsa, kirim email pengingat seperti biasa
         $emailsSent = [];
-
-        // Mengirim email ke semua pengguna dengan CC ke pengguna lainnya
         foreach ($sertif as $s) {
             if ($s->user && $s->user->email) {
-                $ccEmails = $users->pluck('email')->toArray();
                 Mail::to($s->user->email)
-                    ->cc($ccEmails)
-                    ->send(new Reminder($s));
+                    ->cc(array_diff($ccEmails, [$s->user->email]))
+                    ->send(new Reminder($s)); // Email pengingat sertifikat
 
                 $emailsSent[] = $s->user->email;
             }

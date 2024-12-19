@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('kirim:reminder')->everyTwentySeconds();
+        // $schedule->command('kirim:reminder')->weeklyOn(1, '08:00');
+        $schedule->command('kirim:reminder')->everyTwoMinutes();
     }
 
     /**

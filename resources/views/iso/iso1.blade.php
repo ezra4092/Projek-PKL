@@ -29,7 +29,6 @@
    <div class="card">
       <div class="card-body">
          @include('template.tabel')
-         @include('template.modal')
       </div>
    </div>
 </div>

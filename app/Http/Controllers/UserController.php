@@ -23,14 +23,15 @@ class UserController extends Controller
         $user->password =  Hash::make($request->password);
         $user->privilages = $request->privilages;
         $user->save();
-        return redirect()->route('user')->with(['tambah' => true, 'message' => 'Akun Berhasil ditambah']);
+        return redirect()->route('user')->with('success', 'Akun berhasil ditambahkan.');
     }
 
     public function hapus(Request $request){
         // dd($request->all());
-        $akun = User::where('id', $request->id);
+        $delete = $request->id;
+        $akun = User::where('id', $delete);
         $akun->delete();
-        return redirect()->route('user')->with(['delete' => true, 'message' => 'Akun Berhasil dihapus']);
+        return redirect()->route('user')->with('success', 'Akun berhasil dihapus.');
     }
 
     public function edit(Request $request){
@@ -58,7 +59,7 @@ class UserController extends Controller
             $akun->email = $request->email;
             $akun->save();
         }
-        return redirect()->route('user')->with(['edit' => true, 'message' => 'Akun Berhasil diedit']);
+        return redirect()->route('user')->with('success', 'Akun berhasil diedit.');
     }
 
 }
