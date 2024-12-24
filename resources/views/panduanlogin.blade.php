@@ -6,10 +6,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="" />
       <meta name="author" content="" />
-      <title>Documentation</title>
+      <title>Panduan Login</title>
       <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
       <link href="style/styles.css" rel="stylesheet" />
-      <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+      <link rel="icon" type="image/x-icon" href="favicon.ico" />
       <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
    </head>
@@ -20,8 +20,8 @@
         <ul class="navbar-nav align-items-center ms-auto">
             <!-- Documentation Dropdown-->
             <li>
-                <a class="text-success" href="dashboard">
-                   Kembali ke Dashboard <i class="fas fa-angle-right ms-2 me-4"></i>
+                <a class="text-success" href="/">
+                   Kembali ke Login <i class="fas fa-angle-right ms-2 me-4"></i>
                 </a>
             </li>
         </ul>
@@ -31,19 +31,18 @@
             <nav class="sidenav shadow-right sidenav-light">
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
-                        <a class="nav-link mt-5" href="#tambahdata">
+                        <a class="nav-link mt-5" href="#login">
                             <div class="nav-link-icon"><i class="fa-solid fa-1"></i></div>
-                            Menambahkan Data Sertifikat
+                            Cara Login
                         </a>
-                        <a class="nav-link" href="#editdata">
+                        <a class="nav-link" href="#lupapwd">
                             <div class="nav-link-icon"><i class="fa-solid fa-2"></i></div>
-                            Mengedit Data Sertifikat
+                            Lupa Password
                         </a>
-                        <a class="nav-link" href="#hapusdata">
+                        {{-- <a class="nav-link" href="#hapusdata">
                             <div class="nav-link-icon"><i class="fa-solid fa-3"></i></div>
-                            Menghapus Data Sertifikat
+                            Kontak Bantuan
                         </a>
-                        @if(Auth::user()->privilages == 'Full-access')
                         <a class="nav-link" href="#tambahuser">
                             <div class="nav-link-icon"><i class="fa-solid fa-4"></i></div>
                             Menambahkan Data User
@@ -56,16 +55,15 @@
                             <div class="nav-link-icon"><i class="fa-solid fa-6"></i></div>
                             Menghapus Data User
                         </a>
-                        @endif
                         <a class="nav-link" href="#reminder">
                             <div class="nav-link-icon"><i class="fa-solid fa-7"></i></div>
                             Reminder Melalui Email
                         </a>
-                        <a class="nav-link" href="#pembaruanakun">
+                        <a class="nav-link" href="tables.html">
                             <div class="nav-link-icon"><i class="fa-solid fa-8"></i></div>
-                            Pembaruan Data Akun
+                            Tables
                         </a>
-                        {{-- <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="tables.html">
                             <div class="nav-link-icon"><i class="fa-solid fa-9"></i></div>
                             Tables
                         </a> --}}
@@ -82,11 +80,8 @@
                                 <div class="col-auto mt-4">
                                     <h2 class="page-header-title">
                                         <div class="page-header-icon"><i data-feather="bookmark"></i></div>
-                                        Panduan Pengguna
+                                        Panduan Login
                                     </h2>
-                                    <div class="page-header-subtitle">
-                                       Dengan panduan ini anda dapat dengan mudah mengakses dan mengelola sertifikat Anda.
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -94,92 +89,70 @@
                 </header>
                 <!-- Main page content-->
                 <div class="container-xl px-4">
-                    <div class="card">
-                        <div class="card-header text-dark">Menambahkan Data Sertifikat</div>
+                    <div class="card" id="login">
+                        <div class="card-header text-dark">Cara Login</div>
                         <div class="card-body">
                             <table class="table">
                                     <tr>
                                         <td>
-                                            1. Tampilan awal web adalah dashboard. Tentukan jenis sertifikat apa yang akan ditambah datanya dengan cara mencari dan memilih pada pilihan yang ada di menu sidenav sebelah kiri.
+                                            1. Akses halaman login melalui URL pada web browser dan anda akan melihat tampilan formulir login seperti pada gambar.
                                         </td>
-                                        <td><img src="img/tambah1.png" alt="" width="700rem"></td>
+                                        <td><img src="img/login1.png" alt="" width="700rem"></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            2. Lalu akan muncul tabel berisi data data sertifikat.
+                                            2. Pada kolom bertuliskan "Masukkan username", ketikkan username anda sesuai dengan akun yang terdaftar. Pada kolom bertuliskan "Masukkan password", ketikkan kata sandi anda dengan hati-hati. Pastikan password yang dimasukkan benar.
                                         </td>
-                                        <td><img src="img/tambah2.png" alt="" width="700rem"></td>
+                                        <td><img src="img/login2.png" alt="" width="450rem"></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            3. Cari dan klik tombol "Tambah Data" di kanan atas.
+                                            3. Tekan tombol "Login" yang berwarna biru di bagian bawah formulir untuk melanjutkan proses login.
                                         </td>
-                                        <td><img src="img/tambah3.png" alt="" width="150rem"></td>
+                                        <td><img src="img/login3.png" alt="" width="100rem"></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            4. Akan muncul formulir untuk tambah data.
+                                            4. Jika informasi yang dimasukkan benar, Anda akan diarahkan ke dashboard akun Anda. Jika gagal, periksa kembali username dan password Anda.
                                         </td>
-                                        <td><img src="img/tambah4.png" alt="" width="700rem"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            5. Isi formulir yang disediakan dengan data sertifikat yang akurat, seperti: <br>
-                                        Nama Sertifikat <br>
-                                        Nomor Sertifikat <br>
-                                        Tanggal Terbit <br>
-                                        Tanggal Kedaluwarsa <br>
-                                        Instansi yang Mengeluarkan Sertifikat <br>
-                                        Jenis Sertifikat <br>
-                                        File Sertifikat <br>
-                                        Keterangan
-                                        </td>
-                                        <td><img src="img/tambah5.png" alt="" width="700rem"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            6. Saat mengunggah file sertifikat, pastikan ukuran file tidak lebih dari 2mb.
-                                        </td>
-                                        <td><img src="img/tambah6.png" alt="" width="500rem"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            7. Setelah semua data terisi dengan benar, klik tombol "Tambah Data". Data sertifikat baru akan tersimpan oleh sistem.
-                                        </td>
-                                        <td><img src="img/tambah7.png" alt="" width="700rem"></td>
+                                        <td><img src="img/reminder1.png" alt="" width="700rem"></td>
                                     </tr>
                             </table>
                         </div>
                     </div>
-                    <div class="card mt-5" id="editdata">
-                        <div class="card-header text-dark">Mengedit Data Sertifikat</div>
+                    <div class="card mt-5" id="lupapwd">
+                        <div class="card-header text-dark">Cara Mengatasi Lupa Password</div>
                         <div class="card-body">
                             <table class="table">
                                 <tr>
-                                    <td>1. Gunakan fitur pencarian atau filter untuk menemukan data sertifikat yang ingin diedit.</td>
-                                    <td><img src="img/edit1.png" alt="" width="700rem"></td>
+                                    <td>1. Pada halaman login, klik tombol atau tulisan "Lupa Password".</td>
+                                    <td><img src="img/login1.png" alt="" width="700rem"></td>
                                 </tr>
                                 <tr>
-                                    <td>2. Klik tombol edit atau ikon pensil berwarna kuning yang terkait dengan data sertifikat yang ingin diubah.</td>
-                                    <td><img src="img/edit2.png" alt="" width="700rem"></td>
+                                    <td>2. Setelah itu, Anda akan diarahkan ke formulir untuk mengirimkan token reset. Masukkan email yang terdaftar di akun Anda, lalu klik.</td>
+                                    <td><img src="img/resetpw1.png" alt="" width="700rem"></td>
                                 </tr>
                                 <tr>
-                                    <td>3. Akan muncul formulir untuk edit data. Ubah data yang ingin diperbarui pada formulir edit. Pastikan semua kolom input sudah terisi semua.</td>
-                                    <td><img src="img/edit3.png" alt="" width="700rem"></td>
+                                    <td>3. Sistem akan mengirimkan email berisi link untuk mereset password. Link tersebut sudah dilengkapi dengan token reset.</td>
+                                    <td><img src="img/resetpw2.png" alt="" width="700rem"></td>
                                 </tr>
                                 <tr>
-                                    <td>4. Saat mengunggah file sertifikat, pastikan ukuran file tidak lebih dari 2mb.</td>
-                                    <td><img src="img/tambah6.png" alt="" width="500rem"></td>
+                                    <td>4. Buka email Anda, lalu klik link reset password yang sudah diterima.</td>
+                                    <td><img src="img/resetpw3.png" alt="" width="700rem"></td>
                                 </tr>
                                 <tr>
-                                    <td>5. Setelah selesai melakukan perubahan, klik tombol "Edit Data". Perubahan data sertifikat akan tersimpan oleh sistem.</td>
-                                    <td><img src="img/edit4.png" alt="" width="700rem"></td>
+                                    <td>5. Jika token pada link sesuai dan valid, Anda akan diarahkan ke formulir untuk mengganti password. Masukkan password baru Anda dan password harus memiliki minimal 8 karakter.</td>
+                                    <td><img src="img/resetpw4.png" alt="" width="700rem"></td>
+                                </tr>
+                                <tr>
+                                    <td>6. Setelah password berhasil diganti, token akan dihapus otomatis dari sistem. Dan Anda dapat login menggunakan password baru Anda.</td>
+                                    <td><img src="img/resetpw5.png" alt="" width="700rem"></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
-                    <div class="card mt-5" id="hapusdata">
-                        <div class="card-header text-dark">Menghapus Data Sertifikat</div>
+                    {{-- <div class="card mt-5" id="hapusdata">
+                        <div class="card-header text-dark">Kontak Bantuan</div>
                         <div class="card-body">
                             <table class="table">
                                 <tr>
@@ -240,7 +213,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        6. Setelah semua data terisi dengan benar, klik tombol "Tambah Data". Data user baru akan tersimpan oleh sistem.
+                                        6. Setelah semua data terisi dengan benar, klik tombol "Tambah Data". Data user baru akan tersimpan dalam database.
                                     </td>
                                     <td><img src="img/tuser4.png" alt="" width="700rem"></td>
                                 </tr>
@@ -265,7 +238,7 @@
                                 </tr>
                                 <tr>
                                 <tr>
-                                    <td>5. Setelah selesai melakukan perubahan, klik tombol "Edit Data". Perubahan data user akan tersimpan oleh sistem.</td>
+                                    <td>5. Setelah selesai melakukan perubahan, klik tombol "Edit Data". Perubahan data user akan tersimpan di database.</td>
                                     <td><img src="img/euser4.png" alt="" width="700rem"></td>
                                 </tr>
                             </table>
@@ -316,39 +289,7 @@
                                 </tr>
                             </table>
                         </div>
-                    </div>
-                    <div class="card mt-5" id="pembaruanakun">
-                        <div class="card-header text-dark">Pembaruan Data Akun</div>
-                        <div class="card-body">
-                            <table class="table">
-                                <tr>
-                                    <td>1. Pada tampilan dashboard di sudut kanan atas layar, klik ikon yang bergambar user. </td>
-                                    <td><img src="img/reminder1.png" alt="" width="700rem"></td>
-                                </tr>
-                                <tr>
-                                    <td>2. Lalu klik opsi "Account" dari menu dropdown yang muncul.</td>
-                                    <td><img src="img/pembaruan1.png" alt="" width="350rem"></td>
-                                </tr>
-                                <tr>
-                                    <td>3. Setelah memilih Account, Anda akan diarahkan ke halaman Profile seperti pada gambar berikut. Di halaman ini, Anda dapat melihat informasi akun yang dapat diperbarui, seperti: <br>
-                                        Nama <br>
-                                        Email <br>
-                                        Username <br>
-                                        Password (opsional, hanya diisi jika ingin mengganti password) <br> </td>
-                                    <td><img src="img/pembaruan2.png" alt="" width="700rem"></td>
-                                </tr>
-                                <tr>
-                                    <td>4. Lakukan perubahan pada kolom yang perlu diperbarui. Jika Anda tidak ingin mengubah password, biarkan kolom password kosong.
-                                        Pastikan semua data yang diisi sudah benar.</td>
-                                    <td><img src="img/pembaruan3.png" alt="" width="700rem"></td>
-                                </tr>
-                                <tr>
-                                    <td>5. Klik tombol Edit Data untuk menyimpan perubahan yang telah dilakukan. Sistem akan memperbarui data dan menyimpan data anda.</td>
-                                    <td><img src="img/pembaruan4.png" alt="" width="700rem"></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
             </main>
             <footer class="footer-admin mt-auto footer-light">

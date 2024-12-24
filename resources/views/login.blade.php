@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>Login</title>
         <link href="style/styles.css" rel="stylesheet" />
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
     </head>
@@ -43,14 +43,11 @@
                                                 </div> --}}
                                             </div>
                                             <!-- Form Group (login box)-->
-                                            <div class="d-flex align-items-center justify-content-end mt-4 mb-0">
-                                                {{-- <a class="small" href="auth-password-basic.html">Forgot Password?</a> --}}
+                                            <div class="d-flex align-items-center justify-content-between mt-5 mb-0">
+                                                <a class="small" href="lupa-password">Lupa Password?</a>
                                                 <button class="btn btn-primary" type="submit">Login</button>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        {{-- <div class="small"><a href="auth-register-basic.html">Need an account? Sign up!</a></div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -61,13 +58,10 @@
             <div id="layoutAuthentication_footer">
                 <footer class="footer-admin mt-auto footer-dark">
                     <div class="container-xl px-4">
-                        <div class="row">
+                        <div class="row text-dark">
                             <div class="col-md-6 small">Copyright © Ezra 2024</div>
                             <div class="col-md-6 text-md-end small">
-                                {{-- ini mau bikin tapi bingung mau kaya gimana  --}}
-                                <a href="#!">Privacy Policy</a>
-                                ·
-                                <a href="#!">Terms &amp; Conditions</a>
+                                <a href="panduan">Panduan Login</a>
                             </div>
                         </div>
                     </div>

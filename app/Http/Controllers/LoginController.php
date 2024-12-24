@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function index(){
         return view('login');
     }
-    
+
     public function login(Request $request) {
         $credentials = $request->validate([
             'username' => 'required',
@@ -30,5 +30,8 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
+    public function panduan(){
+        return view('panduanlogin');
+    }
 
 }

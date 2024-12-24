@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IsoController;
 use App\Http\Controllers\Kirimreminder;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\SertifController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\UserController;
@@ -24,12 +25,15 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', function () {return view('login');})->name('login');
 Route::post('/proses', [LoginController::class, 'login'])->name('proses');
-
+Route::get('/panduan', [LoginController::class, 'panduan'])->name('panduan');
+Route::get('/lupa-password', [PasswordResetController::class, 'show'])->name('lupa-pwd');
+Route::post('/email-resetpwd', [PasswordResetController::class, 'kirimlink'])->name('kirim-link');
+Route::get('/reset-password', [PasswordResetController::class, 'resetform'])->name('reset-form');
+Route::post('/reset', [PasswordResetController::class, 'resetpw'])->name('reset');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::post('/edit-form', [DashboardController::class, 'editform'])->name('edit-form');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/kirimreminder', [Kirimreminder::class, 'kirimreminder'])->name('reminder');
     Route::post('/tambah-sertif', [SertifikatController::class, 'tambah'])->name('tambah-sertif');
@@ -40,6 +44,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/tambah-user', [UserController::class, 'tambah'])->name('tambah-user');
     Route::post('/hapus-user', [UserController::class, 'hapus'])->name('hapus-user');
     Route::post('/edit-user', [UserController::class, 'edit'])->name('edit-user');
+
+    Route::get('/profile/{id}', [DashboardController::class, 'profile'])->name('profile');
+    Route::post('/update-user/{id}', [DashboardController::class, 'updateprofile'])->name('update-profile');
 
     Route::get('/csr', [SertifController::class, 'csr'])->name('csr');
     Route::get('/hse', [SertifController::class, 'hse'])->name('hse');

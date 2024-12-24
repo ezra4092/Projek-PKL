@@ -132,21 +132,21 @@
 
          {{-- Modal hapus data --}}
          <div class="modal fade" id="hapusModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Delete Data User</h5>
-                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Data Sertifikat</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                     <p>Apakah yakin ingin menghapus data?</p>
-                     <form action="{{ route('hapus-user') }}" method="post">
+                     <p class="mt-3">Apakah yakin ingin menghapus data?</p>
+                     <form action="{{route('hapus-user')}}" method="post">
                         @csrf
-                        <input type="hidden" name="id" id="id">
+                        <input type="hidden" name="id" id="id" >
                   </div>
-                  <div class="modal-footer"><button class="btn btn-secondary" type="button"
-                     data-bs-dismiss="modal">Close</button>
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <div class="modal-footer justify-content-between">
+                  <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Tutup</button>
+                  <button class="btn btn-danger" type="submit">Hapus</button>
                   </div>
                   </form>
                </div>

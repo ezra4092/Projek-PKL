@@ -25,7 +25,8 @@ class User extends Authenticatable
         'password',
         'nama',
         'email',
-        'privilages'
+        'privilages',
+        'token'
     ];
 
     public function sertifikats()

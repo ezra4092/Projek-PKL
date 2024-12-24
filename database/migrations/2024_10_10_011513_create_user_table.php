@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama', 50);
             $table->string('email', 50)->nullable();;
             $table->enum('privilages', ['Full-access', 'Half-access', 'No-access']);
+            $table->string('token', 255)->nullable()->unique();
         });
     }
 

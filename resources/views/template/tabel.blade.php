@@ -46,7 +46,7 @@
            <td>{{$sertif->tgl_kadaluwarsa}}</td>
            <td>{{$sertif->instansi}}</td>
            <td>{{$sertif->jenis}}</td>
-           <td><a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ asset($sertif->dokumen) }}"  target="_blank"><i data-feather="download"></i></a></td>
+           <td><a class="btn btn-datatable btn-icon btn-primary me-2" href="{{ asset($sertif->dokumen) }}"  target="_blank"><i data-feather="download"></i></a></td>
            <td>{{$sertif->keterangan}}</td>
            <td>{{$sertif->user->nama}}</td>
            @if(Auth::user()->privilages == 'Full-access')

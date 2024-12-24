@@ -16,6 +16,9 @@ class UserController extends Controller
     }
 
     public function tambah(Request $request){
+        $request->validate([
+            'password' => 'required|min:8',
+        ]);
         $user = new User();
         $user->nama = $request->nama;
         $user->username = $request->username;
@@ -37,6 +40,9 @@ class UserController extends Controller
     public function edit(Request $request){
         // dd($request->all());
         $akun = User::find($request->id);
+        $request->validate([
+            'password' => 'required|min:8',
+        ]);
         if ($request->password == null){
             if($request->privilages == null){
                 $akun->nama = $request->nama;
@@ -45,7 +51,6 @@ class UserController extends Controller
                 $akun->save();
             } else {
                 $akun->nama = $request->nama;
-                $akun->username = $request->username;
                 $akun->username = $request->username;
                 $akun->email = $request->email;
                 $akun->privilages = $request->privilages;

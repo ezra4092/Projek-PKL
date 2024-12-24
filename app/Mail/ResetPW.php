@@ -9,23 +9,24 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Reminder2 extends Mailable
+class ResetPW extends Mailable
 {
     use Queueable, SerializesModels;
-    public $message;
+    public $resetLink;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct($message)
+    public function __construct($resetLink)
     {
-        $this->message = $message;
+        $this->resetLink = $resetLink;
     }
 
+    /**
+     * Get the message envelope.
+     */
     public function build()
     {
-        return $this->subject('Informasi: Status Sertifikat ISO')
-                    ->view('mail.mail2');
+        return $this->subject('Reset Password')
+                    ->view('mail.resetpw')
+                    ->with(['resetLink' => $this->resetLink]);;
     }
 
     /**

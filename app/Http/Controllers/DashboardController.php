@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Sertifikat;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -40,13 +42,28 @@ class DashboardController extends Controller
         return view('eror');
     }
 
-    public function editform(){
-        $sertif = Sertifikat::all();
-        return view('template.formedit', [
-            'title' => 'Edit Data',
-            'data' => $sertif
-        ]
-    );
+    public function profile2(){
+        return view('konten.profile');
+    }
+
+    public function profile($id){
+        //dd($request->all());
+        $user = User::where('id', $id)->firstorfail();
+        return view ('konten.profile', compact('user'));
+    }
+
+    public function updateprofile(Request $request, $id) {
+        $user = User::find($id);
+
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $user->username = $request->username;
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return redirect("profile/{$id}")->with('success', 'Profile berhasil diupdate.');
     }
 
 

@@ -134,12 +134,6 @@
                                     <td class="fw-bold">Modified by </td>
                                     <td>{{ $sertifikat->user->nama}}</td>
                                 </tr>
-                                {{-- <tr>
-                                    <td><button type="button" class="btn btn-sm btn-secondary d-inline-flex d-flex justify-content-end mt-2" data-bs-toggle="modal" data-bs-target="#reminderModal" id="reminder"
-                                        data-id='{{ $sertifikat->idsertif }}' data-nama='{{ $sertifikat->nama_sertif }}'
-                                        data-no='{{ $sertifikat->no_sertif }}' data-kadaluwarsa='{{ $sertifikat->tgl_kadaluwarsa }}' data-jenis='{{ $sertifikat->jenis }}'>
-                                        Kirim Reminder</button></td>
-                                </tr> --}}
                             </tbody>
                          </table>
                       </div>
@@ -153,64 +147,4 @@
     </div>
  </div>
 
- <!-- Modal -->
- <div class="modal fade" id="reminderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-       <div class="modal-content">
-          <div class="modal-header">
-             <h1 class="modal-title fs-5" id="staticBackdropLabel">Remind Me</h1>
-             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-             <form class="user" action="{{ route('reminder') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="hidden" name="idsertiff" id="id">
-                <div class="mb-3">
-                    <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
-                    <input class="form-control" id="nama" name="nama_sertif" type="text" placeholder="Masukkan nomor sertifikat" readonly />
-                </div>
-                <div class="mb-3">
-                    <label class="small mb-1" for="no_sertif">Nomor Sertifikat</label>
-                    <input class="form-control" id="no" name="no_sertif" type="text" placeholder="Masukkan nomor sertifikat" readonly />
-                </div>
-                <div class="mb-3">
-                   <label class="small mb-1" for="tgl_kadaluwarsa">Tanggal Kedaluwarsa Sertifikat</label>
-                   <input class="form-control" id="tgl_k" name="tgl_kadaluwarsa" type="date" placeholder="Masukkan tanggal kadaluwarsa sertifikat" readonly/>
-                </div>
-                <div class="mb-3">
-                    <label class="small mb-1">Jenis Sertifikat</label>
-                    <select class="form-select" aria-label="Default select example" id="jenis" name="jenis"  readonly >
-                        <option value="ISO 9001 : 2015" {{ isset($sertif) && $sertif->jenis == 'ISO 9001 : 2015' ? 'selected' : '' }}>ISO 9001 : 2015</option>
-                        <option value="ISO 14001 : 2015" {{ isset($sertif) && $sertif->jenis == 'ISO 14001 : 2015' ? 'selected' : '' }}>ISO 14001 : 2015</option>
-                        <option value="ISO 27001 : 2015" {{ isset($sertif) && $sertif->jenis == 'ISO 27001 : 2015' ? 'selected' : '' }}>ISO 27001 : 2015</option>
-                        <option value="ISO 37001 : 2016" {{ isset($sertif) && $sertif->jenis == 'ISO 37001 : 2016' ? 'selected' : '' }}>ISO 37001 : 2016</option>
-                        <option value="ISO 17025 : 2017" {{ isset($sertif) && $sertif->jenis == 'ISO 17025 : 2017' ? 'selected' : '' }}>ISO 17025 : 2017</option>
-                        <option value="ISO 45001 : 2018" {{ isset($sertif) && $sertif->jenis == 'ISO 45001 : 2018' ? 'selected' : '' }}>ISO 45001 : 2018</option>
-                    </select>
-                </div>
-                <p>Apakah anda yakin akan mengirim remider?</p>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-          <button type="submit" class="btn btn-primary">Kirim Reminder</button>
-          </div>
-          </form>
-       </div>
-    </div>
- </div>
- <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
- <script>
-    $(document).on('click', '#reminder', function(e) {
-        var id = $(this).attr("data-id");
-        var nama = $(this).attr("data-nama");
-        var no = $(this).attr("data-no");
-        var kadaluwarsa = $(this).attr('data-kadaluwarsa');
-        var jenis = $(this).attr('data-jenis');
-        $('#id').val(id);
-        $('#nama').val(nama);
-        $('#no').val(no);
-        $('#tgl_k').val(kadaluwarsa);
-        $('#jenis').val(jenis);
-    });
- </script>
 @endsection
